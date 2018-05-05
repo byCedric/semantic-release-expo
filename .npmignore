@@ -1,0 +1,14 @@
+/.github
+/build/test
+/coverage
+/src
+/test
+.editorconfig
+.gitignore
+.npmignore
+.releaserc.yml
+.travis.yml
+codecov.yml
+tsconfig.json
+*.test.ts
+*.test.tsx

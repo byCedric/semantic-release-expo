@@ -1,0 +1,18 @@
+---
+branch: develop
+repositoryUrl: https://github.com/bycedric/semantic-release-expo.git
+tagFormat: ${version}
+analyzeCommits:
+  - path: '@semantic-release/commit-analyzer'
+    preset: angular
+    releaseRules:
+      - type: chore
+        release: patch
+      - type: docs
+        release: patch
+      - type: feature
+        release: minor
+      - type: fix
+        release: patch
+      - type: test
+        release: patch
