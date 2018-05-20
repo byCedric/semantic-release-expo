@@ -14,3 +14,15 @@ analyzeCommits:
         release: patch
       - type: test
         release: patch
+verifyConditions:
+  - '@semantic-release/changelog'
+  - '@semantic-release/npm'
+  - '@semantic-release/git'
+prepare:
+  - '@semantic-release/changelog'
+  - '@semantic-release/npm'
+  - path: '@semantic-release/git'
+    message: |
+      release: create new version ${nextRelease.version} [skip ci]
+
+      ${nextRelease.notes}
