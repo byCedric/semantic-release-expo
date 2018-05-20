@@ -2,12 +2,16 @@ const readFile = jest.fn();
 const readJson = jest.fn();
 const writeJson = jest.fn();
 const detectIndent = jest.fn();
+const detectNewline = jest.fn();
 
 jest.doMock('fs-extra', () => ({ readFile, readJson, writeJson }));
 jest.doMock('detect-indent', () => detectIndent);
+jest.doMock('detect-newline', () => detectNewline);
 
 import {
 	MANIFEST_FILE,
+	DEFAULT_INDENT,
+	DEFAULT_NEWLINE,
 	readManifest,
 	writeManifest,
 	getPlatforms,
@@ -16,8 +20,10 @@ import {
 } from '../src/expo';
 
 describe('expo', () => {
-	describe('+MANIFEST_FILE', () => {
+	describe('constants', () => {
 		it('has correct manifest file name', () => expect(MANIFEST_FILE).toBe('app.json'));
+		it('has double spaces as default indent', () => expect(DEFAULT_INDENT).toBe('  '));
+		it('has line feed as default new line', () => expect(DEFAULT_NEWLINE).toBe('\n'));
 	});
 
 	describe('#readManifest', () => {
@@ -42,11 +48,37 @@ describe('expo', () => {
 
 			readFile.mockReturnValue(manifestString);
 			detectIndent.mockReturnValue({ indent: '\t' });
+			detectNewline.mockReturnValue('\n');
 
 			await writeManifest(manifestData);
 
 			expect(detectIndent).toBeCalledWith(manifestString);
-			expect(writeJson).toBeCalledWith(MANIFEST_FILE, { expo: manifestData }, { spaces: '\t' });
+			expect(detectNewline).toBeCalledWith(manifestString);
+			expect(writeJson).toBeCalledWith(MANIFEST_FILE, { expo: manifestData }, { spaces: '\t', EOL: '\n' });
+		});
+
+		it('writes manifest file with fallback indentation', async () => {
+			const manifestData = { name: 'test' };
+			const manifestString = `{
+				"expo": {
+					"name": "old"
+				}
+			}`;
+
+			const options = {
+				spaces: DEFAULT_INDENT,
+				EOL: DEFAULT_NEWLINE,
+			};
+
+			readFile.mockReturnValue(manifestString);
+			detectIndent.mockReturnValue(undefined);
+			detectNewline.mockReturnValue(undefined);
+
+			await writeManifest(manifestData);
+
+			expect(detectIndent).toBeCalledWith(manifestString);
+			expect(detectNewline).toBeCalledWith(manifestString);
+			expect(writeJson).toBeCalledWith(MANIFEST_FILE, { expo: manifestData }, options);
 		});
 	});
 
