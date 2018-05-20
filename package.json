@@ -1,64 +1,64 @@
 {
-	"name": "semantic-release-expo",
-	"version": "0.0.0",
-	"description": "An Expo extension for semantic releases",
-	"keywords": [
-		"expo",
-		"exponential",
-		"react",
-		"native",
-		"semantic",
-		"release",
-		"bycedric"
-	],
-	"author": "Cedric van Putten <me@bycedric.com>",
-	"license": "MIT",
-	"homepage": "https://github.com/bycedric/semantic-release-expo#readme",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/bycedric/semantic-release-expo.git"
-	},
-	"bugs": {
-		"url": "https://github.com/bycedric/semantic-release-expo/issues"
-	},
-	"main": "./build/src/index.js",
-	"types": "./build/src/index.d.ts",
-	"scripts": {
-		"test": "jest --coverage",
-		"build": "tsc"
-	},
-	"peerDependencies": {},
-	"dependencies": {
-		"detect-indent": "^5.0.0",
-		"fs-extra": "^6.0.1"
-	},
-	"devDependencies": {
-		"@semantic-release/changelog": "^2.0.2",
-		"@semantic-release/error": "^2.2.0",
-		"@semantic-release/git": "^5.0.0",
-		"@types/detect-indent": "^5.0.0",
-		"@types/fs-extra": "^5.0.2",
-		"@types/jest": "^22.2.3",
-		"@types/node": "^10.1.2",
-		"codecov": "^3.0.2",
-		"jest": "^22.4.3",
-		"semantic-release": "^15.4.2",
-		"ts-jest": "^22.4.6",
-		"typescript": "^2.8.3"
-	},
-	"jest": {
-		"collectCoverageFrom": [
-			"src/**/*.{ts,tsx}"
-		],
-		"moduleFileExtensions": [
-			"ts",
-			"tsx",
-			"js",
-			"json"
-		],
-		"testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-		"transform": {
-			"^.+\\.tsx?$": "ts-jest"
-		}
-	}
+  "name": "semantic-release-expo",
+  "version": "1.0.2",
+  "description": "An Expo extension for semantic releases",
+  "keywords": [
+    "expo",
+    "exponential",
+    "react",
+    "native",
+    "semantic",
+    "release",
+    "bycedric"
+  ],
+  "author": "Cedric van Putten <me@bycedric.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/bycedric/semantic-release-expo#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bycedric/semantic-release-expo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bycedric/semantic-release-expo/issues"
+  },
+  "main": "./build/src/index.js",
+  "types": "./build/src/index.d.ts",
+  "scripts": {
+    "test": "jest --coverage",
+    "build": "tsc"
+  },
+  "peerDependencies": {},
+  "dependencies": {
+    "detect-indent": "^5.0.0",
+    "fs-extra": "^6.0.1"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^2.0.2",
+    "@semantic-release/error": "^2.2.0",
+    "@semantic-release/git": "^5.0.0",
+    "@types/detect-indent": "^5.0.0",
+    "@types/fs-extra": "^5.0.2",
+    "@types/jest": "^22.2.3",
+    "@types/node": "^10.1.2",
+    "codecov": "^3.0.2",
+    "jest": "^22.4.3",
+    "semantic-release": "^15.4.2",
+    "ts-jest": "^22.4.6",
+    "typescript": "^2.8.3"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    }
+  }
 }
