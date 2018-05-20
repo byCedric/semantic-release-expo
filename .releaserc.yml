@@ -1,5 +1,5 @@
 ---
-branch: develop
+branch: master
 repositoryUrl: https://github.com/bycedric/semantic-release-expo.git
 tagFormat: ${version}
 analyzeCommits:
