@@ -1,5 +1,6 @@
 import { readFile, readJson, writeJson } from 'fs-extra';
 import * as detectIndent from 'detect-indent';
+import * as detectNewline from 'detect-newline';
 
 /**
  * A manifest-light definition to use for typehinting.
@@ -20,6 +21,16 @@ export interface Manifest {
 export const MANIFEST_FILE = 'app.json';
 
 /**
+ * The default indentation to use when no indentation is found.
+ */
+export const DEFAULT_INDENT = '  ';
+
+/**
+ * The default newline character to use when no existing was detected.
+ */
+export const DEFAULT_NEWLINE = '\n';
+
+/**
  * Read the Expo manifest content and return the parsed JSON.
  */
 export async function readManifest(): Promise<Manifest> {
@@ -31,9 +42,10 @@ export async function readManifest(): Promise<Manifest> {
  */
 export async function writeManifest(newContent: Manifest) {
 	const oldContent = await readFile(MANIFEST_FILE, 'utf8');
-	const { indent } = detectIndent(oldContent);
+	const { indent } = detectIndent(oldContent) || { indent: DEFAULT_INDENT };
+	const newline = detectNewline(oldContent) || DEFAULT_NEWLINE;
 
-	await writeJson(MANIFEST_FILE, { expo: newContent }, { spaces: indent });
+	await writeJson(MANIFEST_FILE, { expo: newContent }, { spaces: indent, EOL: newline });
 }
 
 /**
