@@ -33,7 +33,9 @@
 		"fs-extra": "^6.0.1"
 	},
 	"devDependencies": {
+		"@semantic-release/changelog": "^2.0.2",
 		"@semantic-release/error": "^2.2.0",
+		"@semantic-release/git": "^5.0.0",
 		"@types/detect-indent": "^5.0.0",
 		"@types/fs-extra": "^5.0.2",
 		"@types/jest": "^22.2.3",
