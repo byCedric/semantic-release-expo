@@ -40,7 +40,7 @@
     "@types/detect-indent": "^5.0.0",
     "@types/detect-newline": "^2.1.0",
     "@types/fs-extra": "^5.0.2",
-    "@types/jest": "^22.2.3",
+    "@types/jest": "^23.0.0",
     "@types/node": "^10.1.2",
     "codecov": "^3.0.2",
     "jest": "^22.4.3",
