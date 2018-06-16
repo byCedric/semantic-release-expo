@@ -1,7 +1,7 @@
 {
 	"name": "semantic-release-expo",
 	"version": "1.0.3",
-	"description": "An Expo extension for semantic releases",
+	"description": "An Expo implementation for semantic release, so you don't have to bother",
 	"keywords": [
 		"expo",
 		"exponential",
