@@ -1,6 +1,7 @@
 /.github
 /build/test
 /coverage
+/docs
 /src
 /test
 .editorconfig
