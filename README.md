@@ -7,6 +7,8 @@
 
 An [Expo][expo] implementation for [semantic release][semantic-release] so you don't have to bother.
 
+![Example](docs/terminal.svg)
+
 ## What's included?
 
 Semantic release will first determine a new version based on your likings. 
