@@ -12,10 +12,6 @@ export interface GlobalConfig {
 	tagFormat: string;
 }
 
-export interface Config {
-	//
-}
-
 export interface LastRelease {
 	/** The version name of the release */
 	version: string;
