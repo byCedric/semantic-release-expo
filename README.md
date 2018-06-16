@@ -5,7 +5,7 @@
 [![Codecov coverage](https://img.shields.io/codecov/c/github/byCedric/semantic-release-expo.svg?style=flat-square)](https://codecov.io/gh/byCedric/semantic-release-expo)
 [![Code Climate grade](https://img.shields.io/codeclimate/maintainability/byCedric/semantic-release-expo.svg?style=flat-square)](https://codeclimate.com/github/byCedric/semantic-release-expo)
 
-An [Expo][expo] implementation for [semantic release][semantic-release] so you don't have to bother.
+An [Expo][expo] implementation for [semantic release][semantic-release], so you don't have to bother.
 
 ![Example](docs/terminal.svg)
 
