@@ -9,7 +9,7 @@ An [Expo][expo] implementation for [semantic release][semantic-release] so you d
 
 ![Example](docs/terminal.svg)
 
-## What's included?
+## How it works
 
 Semantic release will first determine a new version based on your likings. 
 Then this plugin will search for your [Expo manifest][expo-manifest] and update it accordingly. 
@@ -24,8 +24,8 @@ The name of the Expo app, defined in the [`name` property][expo-name], is dumped
 
 ## Prepare
 
-this plugin writes the actual changes to the manifest during preparation.
-After this step you can [publish to Expo][expo-publish], [create a new build][expo-build] or to add the changes in a [release commit][semantic-release-commit].
+This plugin writes the actual changes to the manifest during preparation.
+After this step, you can [publish to Expo][expo-publish], [create a new build][expo-build] or add the changes in a [release commit][semantic-release-commit].
 The [`version` property][expo-version] within the manifest is always updated. 
 For Android, the previous `versionCode` is incremented by one. 
 And for iOS, the new version is set as `buildNumber`. 
