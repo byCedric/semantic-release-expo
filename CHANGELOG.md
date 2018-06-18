@@ -1,3 +1,5 @@
+# [1.1.0](https://github.com/bycedric/semantic-release-expo/compare/1.0.4...1.1.0) (2018-06-18)
+
 ## [1.0.4](https://github.com/bycedric/semantic-release-expo/compare/1.0.3...1.0.4) (2018-06-17)
 
 
