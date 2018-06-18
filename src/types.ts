@@ -1,4 +1,4 @@
-import { Manifest } from './expo';
+import { ManifestMeta, Manifest } from './expo';
 
 /**
  * The semantic release configuration itself.
@@ -10,6 +10,11 @@ export interface GlobalConfig {
 	repositoryUrl: string;
 	/** The Git tag format used by semantic-release to identify releases. */
 	tagFormat: string;
+}
+
+export interface Config {
+	/** The manifest file(s) to update. */
+	manifests?: string[];
 }
 
 export interface LastRelease {
@@ -44,10 +49,10 @@ export interface Context {
  * A method which is used by semantic releases as script execution.
  * This is loaded and injected by semantic itself.
  */
-export type SemanticMethod = (config: any, context: Context) => any;
+export type SemanticMethod = (config: Config, context: Context) => any;
 
 /**
  * A method that updates a single manifest version number.
  * This can either be in general or platform specific like android and ios.
  */
-export type VersionBumper = (manifest: Manifest, context: Context) => Manifest;
+export type VersionBumper = (meta: ManifestMeta, context: Context) => Manifest;

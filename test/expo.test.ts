@@ -13,6 +13,7 @@ import {
 	DEFAULT_INDENT,
 	DEFAULT_NEWLINE,
 	readManifest,
+	readManifests,
 	writeManifest,
 	getPlatforms,
 	getAndroidPlatform,
@@ -28,12 +29,28 @@ describe('expo', () => {
 
 	describe('#readManifest', () => {
 		it('reads the manifest file', async () => {
-			readJson.mockReturnValue({ expo: { name: 'test' } });
+			readFile.mockResolvedValue('{ "expo": { "name": "test" } }');
 
-			const manifest = await readManifest()
+			const meta = await readManifest(MANIFEST_FILE);
 
-			expect(readJson).toBeCalledWith(MANIFEST_FILE);
-			expect(manifest).toMatchObject({ name: 'test' });
+			expect(readFile).toBeCalledWith(MANIFEST_FILE, 'utf8');
+			expect(meta.manifest).toMatchObject({ name: 'test' });
+		});
+	});
+
+	describe('#readManifests', () => {
+		it('reads multiple manifest files', async () => {
+			readFile
+				.mockResolvedValueOnce('{ "expo": { "name": "first" } }')
+				.mockResolvedValueOnce('{ "expo": { "name": "second" } }');
+
+			const metas = await readManifests([MANIFEST_FILE, MANIFEST_FILE]);
+
+			expect(readFile).toHaveBeenNthCalledWith(1, MANIFEST_FILE, 'utf8');
+			expect(readFile).toHaveBeenNthCalledWith(2, MANIFEST_FILE, 'utf8');
+
+			expect(metas[0].manifest).toMatchObject({ name: 'first' });
+			expect(metas[1].manifest).toMatchObject({ name: 'second' });
 		});
 	});
 
@@ -46,11 +63,16 @@ describe('expo', () => {
 				}
 			}`;
 
-			readFile.mockReturnValue(manifestString);
+			const manifestMeta = {
+				filename: MANIFEST_FILE,
+				content: manifestString,
+				manifest: JSON.parse(manifestString).expo,
+			};
+
 			detectIndent.mockReturnValue({ indent: '\t' });
 			detectNewline.mockReturnValue('\n');
 
-			await writeManifest(manifestData);
+			await writeManifest(manifestMeta, manifestData);
 
 			expect(detectIndent).toBeCalledWith(manifestString);
 			expect(detectNewline).toBeCalledWith(manifestString);
@@ -65,16 +87,21 @@ describe('expo', () => {
 				}
 			}`;
 
+			const manifestMeta = {
+				filename: MANIFEST_FILE,
+				content: manifestString,
+				manifest: JSON.parse(manifestString).expo,
+			};
+
 			const options = {
 				spaces: DEFAULT_INDENT,
 				EOL: DEFAULT_NEWLINE,
 			};
 
-			readFile.mockReturnValue(manifestString);
 			detectIndent.mockReturnValue(undefined);
 			detectNewline.mockReturnValue(undefined);
 
-			await writeManifest(manifestData);
+			await writeManifest(manifestMeta, manifestData);
 
 			expect(detectIndent).toBeCalledWith(manifestString);
 			expect(detectNewline).toBeCalledWith(manifestString);

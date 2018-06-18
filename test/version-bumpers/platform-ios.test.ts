@@ -26,16 +26,23 @@ describe('version-bumpers/platform-ios', () => {
 			ios: { buildNumber: '0.2.0' },
 		};
 
+		const meta = {
+			filename: 'app.json',
+			content: JSON.stringify(oldManifest),
+			manifest: oldManifest,
+		};
+
 		getIosPlatform.mockReturnValue(oldManifest.ios);
 
-		const newManifest = bumpPlatformIos(oldManifest, context);
+		const newManifest = bumpPlatformIos(meta, context);
 
 		expect(getIosPlatform).toBeCalledWith(oldManifest);
 		expect(context.logger.log).toBeCalledWith(
-			'%s manifest ios version changed (%s => %s)',
+			'%s manifest ios version changed (%s => %s) in %s',
 			'Expo',
 			'0.2.0',
 			'0.2.1',
+			'app.json',
 		);
 
 		expect(newManifest).toMatchObject({

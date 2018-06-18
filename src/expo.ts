@@ -16,7 +16,17 @@ export interface Manifest {
 }
 
 /**
- * The name of the Expo manifest file.
+ * A small manifest description object to include filenames.
+ * This is required when reading mulitple manifests to keep track of the filenames.
+ */
+export interface ManifestMeta {
+	filename: string;
+	content: string;
+	manifest: Manifest;
+}
+
+/**
+ * The name of the default Expo manifest file.
  */
 export const MANIFEST_FILE = 'app.json';
 
@@ -33,19 +43,28 @@ export const DEFAULT_NEWLINE = '\n';
 /**
  * Read the Expo manifest content and return the parsed JSON.
  */
-export async function readManifest(): Promise<Manifest> {
-	return (await readJson(MANIFEST_FILE)).expo;
+export async function readManifest(filename: string): Promise<ManifestMeta> {
+	const content = await readFile(filename, 'utf8');
+	const manifest = JSON.parse(content).expo;
+
+	return { filename, content, manifest };
+}
+
+/**
+ * Read a list of Expo mannifest files and return the parsed JSON.
+ */
+export async function readManifests(filenames: string[]): Promise<ManifestMeta[]> {
+	return await Promise.all(filenames.map(readManifest));
 }
 
 /**
  * Write new content to the Expo manifest file, keeping indentation intact.
  */
-export async function writeManifest(newContent: Manifest) {
-	const oldContent = await readFile(MANIFEST_FILE, 'utf8');
-	const { indent } = detectIndent(oldContent) || { indent: DEFAULT_INDENT };
-	const newline = detectNewline(oldContent) || DEFAULT_NEWLINE;
+export async function writeManifest(meta: ManifestMeta, manifest: Manifest) {
+	const { indent } = detectIndent(meta.content) || { indent: DEFAULT_INDENT };
+	const newline = detectNewline(meta.content) || DEFAULT_NEWLINE;
 
-	await writeJson(MANIFEST_FILE, { expo: newContent }, { spaces: indent, EOL: newline });
+	await writeJson(meta.filename, { expo: manifest }, { spaces: indent, EOL: newline });
 }
 
 /**

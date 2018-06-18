@@ -1,4 +1,5 @@
-import { readManifest, writeManifest } from '../expo';
+import { getManifestFiles } from '../config';
+import { readManifests, writeManifest } from '../expo';
 import { SemanticMethod } from '../types';
 import bumpVersions from '../version-bumpers';
 
@@ -8,12 +9,19 @@ import bumpVersions from '../version-bumpers';
  * It should also update the version code and build number when available.
  */
 const prepare: SemanticMethod = async (config, context) => {
-	const oldManifest = await readManifest();
-	const newManifest = bumpVersions(oldManifest, context);
+	const files = await readManifests(getManifestFiles(config));
+	const writes = files.map(meta => (
+		writeManifest(meta, bumpVersions(meta, context)).then(() => {
+			context.logger.log(
+				'New %s manifest written for %s to %s',
+				'Expo',
+				meta.manifest.name,
+				meta.filename,
+			);
+		})
+	));
 
-	await writeManifest(newManifest);
-
-	context.logger.log('New %s manifest written', 'Expo');
+	await Promise.all(writes);
 };
 
 export default prepare;
