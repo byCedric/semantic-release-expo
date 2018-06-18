@@ -1,11 +1,17 @@
 import { VersionBumper } from '../types';
 
-const bumpVersion: VersionBumper = (manifest, context) => {
+const bumpVersion: VersionBumper = (meta, context) => {
 	const version = context.nextRelease!.version;
 
-	context.logger.log('%s manifest version changed (%s => %s)', 'Expo', manifest.version, version);
+	context.logger.log(
+		'%s manifest version changed (%s => %s) in %s',
+		'Expo',
+		meta.manifest.version,
+		version,
+		meta.filename,
+	);
 
-	return { ...manifest, version };
+	return { ...meta.manifest, version };
 };
 
 export default bumpVersion;

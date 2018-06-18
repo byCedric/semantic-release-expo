@@ -26,12 +26,25 @@ describe('version-bumpers/platform-android', () => {
 			ios: { buildNumber: '1.2.0' },
 		};
 
+		const meta = {
+			filename: 'app.json',
+			content: JSON.stringify(oldManifest),
+			manifest: oldManifest,
+		};
+
 		getAndroidPlatform.mockReturnValue(oldManifest.android);
 
-		const newManifest = bumpPlatformAndroid(oldManifest, context);
+		const newManifest = bumpPlatformAndroid(meta, context);
 
 		expect(getAndroidPlatform).toBeCalledWith(oldManifest);
-		expect(context.logger.log).toBeCalledWith('%s manifest android version changed (%s => %s)', 'Expo', 6, 7);
+		expect(context.logger.log).toBeCalledWith(
+			'%s manifest android version changed (%s => %s) in %s',
+			'Expo',
+			6,
+			7,
+			'app.json',
+		);
+
 		expect(newManifest).toMatchObject({
 			name: 'test',
 			version: '1.2.0',

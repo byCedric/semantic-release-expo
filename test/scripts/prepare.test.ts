@@ -1,14 +1,14 @@
-const readManifest = jest.fn();
+const readManifests = jest.fn();
 const writeManifest = jest.fn();
 const bumpVersions = jest.fn();
 
-jest.doMock('../../src/expo', () => ({ readManifest, writeManifest }));
+jest.doMock('../../src/expo', () => ({ readManifests, writeManifest, MANIFEST_FILE: 'app.json' }));
 jest.doMock('../../src/version-bumpers', () => ({ default: bumpVersions }));
 
 import prepare from '../../src/scripts/prepare';
 
 describe('scripts/prepare', () => {
-	it('reads and writes manifest with new version bumped', async () => {
+	it('reads and writes manifests with new version bumped', async () => {
 		const config = {};
 		const context = {
 			nextRelease: {
@@ -26,15 +26,23 @@ describe('scripts/prepare', () => {
 		const oldManifest = { name: 'test', version: '0.2.0' };
 		const newManifest = { name: 'test', version: '0.2.1' };
 
-		readManifest.mockReturnValue(oldManifest);
+		const oldMeta = { filename: 'app.json', content: JSON.stringify(oldManifest), manifest: oldManifest };
+
+		readManifests.mockResolvedValue([oldMeta]);
 		bumpVersions.mockReturnValue(newManifest);
+		writeManifest.mockResolvedValue(undefined);
 
 		await prepare(config, context);
 
-		expect(readManifest).toBeCalled();
-		expect(bumpVersions).toBeCalledWith(oldManifest, context);
-		expect(writeManifest).toBeCalledWith(newManifest);
+		expect(readManifests).toBeCalled();
+		expect(bumpVersions).toBeCalledWith(oldMeta, context);
+		expect(writeManifest).toBeCalledWith(oldMeta, newManifest);
 
-		expect(context.logger.log).toBeCalledWith('New %s manifest written', 'Expo');
+		expect(context.logger.log).toBeCalledWith(
+			'New %s manifest written for %s to %s',
+			'Expo',
+			'test',
+			'app.json',
+		);
 	});
 });

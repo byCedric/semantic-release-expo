@@ -1,12 +1,12 @@
 const getPlatforms = jest.fn();
 const bumpPlatformAndroid = jest.fn();
 const bumpPlatformIos = jest.fn();
-const bumpVerison = jest.fn();
+const bumpVersion = jest.fn();
 
 jest.doMock('../../src/expo', () => ({ getPlatforms }));
 jest.doMock('../../src/version-bumpers/platform-android', () => ({ default: bumpPlatformAndroid }));
 jest.doMock('../../src/version-bumpers/platform-ios', () => ({ default: bumpPlatformIos }));
-jest.doMock('../../src/version-bumpers/version', () => ({ default: bumpVerison }));
+jest.doMock('../../src/version-bumpers/version', () => ({ default: bumpVersion }));
 
 import bumpAllVersion from '../../src/version-bumpers';
 
@@ -28,13 +28,19 @@ describe('version-bumpers', () => {
 		const oldManifest = { name: 'test', version: '9.0.0' };
 		const newManifest = { name: 'test', version: '9.1.0' };
 
-		getPlatforms.mockReturnValue([]);
-		bumpVerison.mockReturnValue(newManifest);
+		const meta = {
+			filename: 'app.json',
+			content: JSON.stringify(oldManifest),
+			manifest: oldManifest,
+		};
 
-		const received = bumpAllVersion(oldManifest, context);
+		getPlatforms.mockReturnValue([]);
+		bumpVersion.mockReturnValue(newManifest);
+
+		const received = bumpAllVersion(meta, context);
 
 		expect(received).toBe(newManifest);
-		expect(bumpVerison).toBeCalledWith(oldManifest, context);
+		expect(bumpVersion).toBeCalledWith(meta, context);
 	});
 
 	it('returns new manifest with bumped version and platform versions', () => {
@@ -62,16 +68,22 @@ describe('version-bumpers', () => {
 		const newAndroidManifest = { ...newVersionManifest, android: { versionCode: 13 } };
 		const newIosManifest = { ...newAndroidManifest, ios: { buildNumber: '2.4.0' } };
 
+		const meta = {
+			filename: 'app.json',
+			content: JSON.stringify(oldManifest),
+			manifest: oldManifest,
+		};
+
 		getPlatforms.mockReturnValue(['android', 'ios']);
-		bumpVerison.mockReturnValue(newVersionManifest);
+		bumpVersion.mockReturnValue(newVersionManifest);
 		bumpPlatformAndroid.mockReturnValue(newAndroidManifest);
 		bumpPlatformIos.mockReturnValue(newIosManifest);
 
-		const received = bumpAllVersion(oldManifest, context);
+		const received = bumpAllVersion(meta, context);
 
 		expect(received).toBe(newIosManifest);
-		expect(bumpVerison).toBeCalledWith(oldManifest, context);
-		expect(bumpPlatformAndroid).toBeCalledWith(newVersionManifest, context);
-		expect(bumpPlatformIos).toBeCalledWith(newAndroidManifest, context);
+		expect(bumpVersion).toBeCalledWith(meta, context);
+		expect(bumpPlatformAndroid).toBeCalledWith({ ...meta, manifest: newVersionManifest }, context);
+		expect(bumpPlatformIos).toBeCalledWith({ ...meta, manifest: newAndroidManifest }, context);
 	});
 });
