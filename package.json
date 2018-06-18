@@ -42,7 +42,7 @@
 		"@types/jest": "^23.0.0",
 		"@types/node": "^10.1.2",
 		"codecov": "^3.0.2",
-		"jest": "^22.4.3",
+		"jest": "^23.1.0",
 		"semantic-release": "^15.4.2",
 		"semantic-release-git-branches": "^1.1.0",
 		"ts-jest": "^22.4.6",
