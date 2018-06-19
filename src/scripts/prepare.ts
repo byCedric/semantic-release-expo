@@ -3,6 +3,8 @@ import { readManifests, writeManifest } from '../expo';
 import { SemanticMethod } from '../types';
 import bumpVersions from '../version-bumpers';
 
+const SemanticReleaseError = require('@semantic-release/error');
+
 /**
  * Prepare the new release by updating all manifests.
  * This should update at least the `version` using the next release version name.
@@ -21,7 +23,11 @@ const prepare: SemanticMethod = async (config, context) => {
 		})
 	));
 
-	await Promise.all(writes);
+	try {
+		await Promise.all(writes);
+	} catch (error) {
+		throw new SemanticReleaseError('Could not write Expo manifest(s)', 'EWRITEEXPOMANIFEST');
+	}
 };
 
 export default prepare;
