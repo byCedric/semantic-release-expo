@@ -4,7 +4,7 @@ import { SemanticMethod } from '../types';
 import bumpVersions from '../version-bumpers';
 
 /**
- * Prepare the new release by updating the manifest.
+ * Prepare the new release by updating all manifests.
  * This should update at least the `version` using the next release version name.
  * It should also update the version code and build number when available.
  */

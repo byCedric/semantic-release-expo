@@ -6,7 +6,7 @@ const SemanticReleaseError = require('@semantic-release/error');
 
 /**
  * Verify the configuration of this plugin.
- * This checks if an Expo `app.json` can be found.
+ * This checks if all Expo manifests are readable.
  */
 const verifyConditions: SemanticMethod = async (config, context) => {
 	try {
