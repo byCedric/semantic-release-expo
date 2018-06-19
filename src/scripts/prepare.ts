@@ -28,6 +28,8 @@ const prepare: SemanticMethod = async (config, context) => {
 	} catch (error) {
 		throw new SemanticReleaseError('Could not write Expo manifest(s)', 'EWRITEEXPOMANIFEST');
 	}
+
+	context.logger.log('Updated all %s manifests!', writes.length);
 };
 
 export default prepare;
