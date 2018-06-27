@@ -24,6 +24,6 @@ prepare:
   - path: 'semantic-release-git-branches'
     branchMerges: [develop, master]
     message: |
-      release: create new version ${nextRelease.version} [skip ci]
+      chore: create new release ${nextRelease.version} [skip ci]
 
       ${nextRelease.notes}
