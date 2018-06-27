@@ -59,12 +59,7 @@ Here is an example configuration with automated changelogs, `package.json` versi
             ]
         }
     ],
-    "publish": [
-        {
-            "path": "@semantic-release/exec",
-            "cmd": "echo \"done!\""
-        }
-    ],
+    "publish": false,
     "success": false,
     "fail": false
 }
