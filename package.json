@@ -26,7 +26,8 @@
 	"scripts": {
 		"lint": "commitlint --from 4709ac84e2bcd93e72ca1da7e3f4c7428cae3652",
 		"test": "jest --coverage",
-		"build": "tsc"
+		"build": "tsc",
+		"commit": "git-cz"
 	},
 	"peerDependencies": {},
 	"dependencies": {
@@ -45,7 +46,9 @@
 		"@types/jest": "^23.0.0",
 		"@types/node": "^10.1.2",
 		"codecov": "^3.0.2",
+		"commitizen": "^2.10.1",
 		"commitlint-config-peakfijn": "^0.4.0",
+		"cz-changelog-peakfijn": "^0.4.0",
 		"jest": "^23.1.0",
 		"semantic-release": "^15.4.2",
 		"semantic-release-git-branches": "^1.1.0",
@@ -65,6 +68,11 @@
 		"testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
 		"transform": {
 			"^.+\\.tsx?$": "ts-jest"
+		}
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-changelog-peakfijn"
 		}
 	},
 	"greenkeeper": {
