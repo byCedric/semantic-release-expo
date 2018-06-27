@@ -11,6 +11,7 @@ before_install:
 install:
   - npm install
 script:
+  - commitlint-travis
   - npm test
   - npm run build
 after_success:
