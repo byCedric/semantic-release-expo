@@ -62,5 +62,16 @@
 		"transform": {
 			"^.+\\.tsx?$": "ts-jest"
 		}
+	},
+	"greenkeeper": {
+		"commitMessages": {
+			"initialBadge": "documentation: add greenkeeper badge",
+			"initialDependencies": "chore: update dependencies",
+			"initialBranches": "chore: whitelist greenkeeper branches",
+			"dependencyUpdate": "refactor: upgrade ${dependency} to version ${version}",
+			"devDependencyUpdate": "refactor: upgrade ${dependency} to version ${version}",
+			"dependencyPin": "fix: freeze ${dependency} to ${oldVersion}",
+			"devDependencyPin": "fix: freeze ${dependency} to ${oldVersion}"
+		}
 	}
 }
