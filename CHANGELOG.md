@@ -1,3 +1,37 @@
+## [1.1.1](https://github.com/bycedric/semantic-release-expo/compare/1.1.0...1.1.1) (2018-07-10)
+
+
+### Bug fixes
+
+* add missing reason of failure in exception ([3f198ed](https://github.com/bycedric/semantic-release-expo/commit/3f198ed))
+* log the manifest file throwing the exception ([05183f4](https://github.com/bycedric/semantic-release-expo/commit/05183f4))
+
+
+### Code refactors
+
+* upgrade [@types](https://github.com/types)/fs-extra to version 5.0.4 ([154afed](https://github.com/bycedric/semantic-release-expo/commit/154afed))
+* upgrade ts-jest to version 23.0.0 ([d2e8d94](https://github.com/bycedric/semantic-release-expo/commit/d2e8d94))
+* use `chore` as commit type for new releases ([3cb214f](https://github.com/bycedric/semantic-release-expo/commit/3cb214f))
+
+
+### Documentation changes
+
+* remove excessive prepare step from example ([958b01c](https://github.com/bycedric/semantic-release-expo/commit/958b01c))
+
+
+### Other chores
+
+* add commitizen with peakfijn conventions ([28e5552](https://github.com/bycedric/semantic-release-expo/commit/28e5552))
+* configure greenkeeper to use proper commit messages ([9986e1c](https://github.com/bycedric/semantic-release-expo/commit/9986e1c))
+* rebuild changelog using peakfijn conventions ([3133aa5](https://github.com/bycedric/semantic-release-expo/commit/3133aa5))
+* update semantic release config with the peakfijn conventions ([e7f80b9](https://github.com/bycedric/semantic-release-expo/commit/e7f80b9))
+
+
+### Pipeline changes
+
+* add commitlint with peakfijn conventions ([2e94a50](https://github.com/bycedric/semantic-release-expo/commit/2e94a50))
+* use new single analyser format for releases ([7e46655](https://github.com/bycedric/semantic-release-expo/commit/7e46655))
+
 # [1.1.0](https://github.com/bycedric/semantic-release-expo/compare/1.0.4...1.1.0) (2018-06-18)
 
 
@@ -88,6 +122,3 @@
 ### Other chores
 
 * initial project structure setup ([63891a6](https://github.com/bycedric/semantic-release-expo/commit/63891a6))
-
-
-
