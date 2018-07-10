@@ -4,15 +4,13 @@ module.exports = {
 	branch: 'master',
 	repositoryUrl: 'https://github.com/bycedric/semantic-release-expo.git',
 	tagFormat: '${version}',
-	analyzeCommits: [
-		{
-			path: '@semantic-release/commit-analyzer',
-			preset: 'peakfijn',
-			releaseRules: Object.keys(commitTypes)
-				.map(type => ({ type, release: commitTypes[type].release }))
-				.filter(rule => !!rule.release),
-		},
-	],
+	analyzeCommits: {
+		path: '@semantic-release/commit-analyzer',
+		preset: 'peakfijn',
+		releaseRules: Object.keys(commitTypes)
+			.map(type => ({ type, release: commitTypes[type].release }))
+			.filter(rule => !!rule.release),
+	},
 	generateNotes: [
 		{
 			path: '@semantic-release/release-notes-generator',
