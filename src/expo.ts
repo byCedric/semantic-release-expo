@@ -44,10 +44,15 @@ export const DEFAULT_NEWLINE = '\n';
  * Read the Expo manifest content and return the parsed JSON.
  */
 export async function readManifest(filename: string): Promise<ManifestMeta> {
-	const content = await readFile(filename, 'utf8');
-	const manifest = JSON.parse(content).expo;
+	try {
+		const content = await readFile(filename, 'utf8');
+		const manifest = JSON.parse(content).expo;
 
-	return { filename, content, manifest };
+		return { filename, content, manifest };
+	} catch (error) {
+		error.expo = filename;
+		throw error;
+	}
 }
 
 /**
