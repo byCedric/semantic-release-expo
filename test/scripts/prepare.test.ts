@@ -6,20 +6,18 @@ jest.doMock('../../src/expo', () => ({ readManifests, writeManifest, MANIFEST_FI
 jest.doMock('../../src/version-bumpers', () => ({ default: bumpVersions }));
 
 import prepare from '../../src/scripts/prepare';
+import { createContextLogger } from '../factory';
 
 describe('scripts/prepare', () => {
 	it('reads and writes manifests with new version bumped', async () => {
 		const config = {};
 		const context = {
+			logger: createContextLogger(),
 			nextRelease: {
 				version: '0.2.1',
 				gitTag: 'v0.2.1',
 				gitHead: 'abc12',
 				notes: 'Testing a new version',
-			},
-			logger: {
-				log: jest.fn(),
-				error: jest.fn(),
 			},
 		};
 

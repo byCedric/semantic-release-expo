@@ -1,6 +1,7 @@
 import { readFile, readJson, writeJson } from 'fs-extra';
 import * as detectIndent from 'detect-indent';
 import * as detectNewline from 'detect-newline';
+import { Context } from './types';
 
 /**
  * A manifest-light definition to use for typehinting.
@@ -39,6 +40,15 @@ export const DEFAULT_INDENT = '  ';
  * The default newline character to use when no existing was detected.
  */
 export const DEFAULT_NEWLINE = '\n';
+
+/**
+ * Log information about the manifest which is related to the error.
+ */
+export function logManifestFromError(context: Context, error: any) {
+	if (error && error.expo) {
+		context.logger.log('Error encountered for %s manifest %s', 'Expo', error.expo);
+	}
+}
 
 /**
  * Read the Expo manifest content and return the parsed JSON.
