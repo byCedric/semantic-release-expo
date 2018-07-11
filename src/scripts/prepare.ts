@@ -26,7 +26,11 @@ const prepare: SemanticMethod = async (config, context) => {
 	try {
 		await Promise.all(writes);
 	} catch (error) {
-		throw new SemanticReleaseError('Could not write Expo manifest(s)', 'EWRITEEXPOMANIFEST');
+		if (error.expo) {
+			context.logger.log('Error encountered for %s manifest %s', 'Expo', error.expo);
+		}
+
+		throw new SemanticReleaseError('Could not write Expo manifest(s)', 'EWRITEEXPOMANIFEST', error.message);
 	}
 
 	context.logger.log('Updated all %s manifests!', writes.length);
