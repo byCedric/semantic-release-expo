@@ -34,12 +34,14 @@ describe('config', () => {
 	describe('#getPrepareConfig', () => {
 		it('returns nothing when prepare configuration is not defined', () => {
 			const contextWithoutPrepare = createContextWithPrepare(undefined);
+			const contextWithSinglePrepare = createContextWithPrepare({ path: '@semantic-release/npm' });
 			const contextWithPrepare = createContextWithPrepare([
 				{ path: '@semantic-release/changelog' },
 				{ path: '@semantic-release/npm' },
 			]);
 
 			expect(getPrepareConfig(contextWithoutPrepare)).toBeUndefined();
+			expect(getPrepareConfig(contextWithSinglePrepare)).toBeUndefined();
 			expect(getPrepareConfig(contextWithPrepare)).toBeUndefined();
 		});
 
