@@ -12,6 +12,7 @@ import {
 	MANIFEST_FILE,
 	DEFAULT_INDENT,
 	DEFAULT_NEWLINE,
+	logManifestFromError,
 	readManifest,
 	readManifests,
 	writeManifest,
@@ -19,12 +20,37 @@ import {
 	getAndroidPlatform,
 	getIosPlatform,
 } from '../src/expo';
+import { createContext } from './factory';
 
 describe('expo', () => {
 	describe('constants', () => {
 		it('has correct manifest file name', () => expect(MANIFEST_FILE).toBe('app.json'));
 		it('has double spaces as default indent', () => expect(DEFAULT_INDENT).toBe('  '));
 		it('has line feed as default new line', () => expect(DEFAULT_NEWLINE).toBe('\n'));
+	});
+
+	describe('#logManifestFromError', () => {
+		it('does not log anything for normal errors', () => {
+			const context = createContext();
+
+			logManifestFromError(context, new Error());
+
+			expect((context.logger.log as jest.Mock).mock.calls).toHaveLength(0);
+		});
+
+		it('does log for errors related to manifest errors', () => {
+			const context = createContext();
+			const error = new Error() as any;
+			error.expo = 'app.production.json';
+
+			logManifestFromError(context, error);
+
+			expect(context.logger.log).toBeCalledWith(
+				'Error encountered for %s manifest %s',
+				'Expo',
+				'app.production.json',
+			);
+		});
 	});
 
 	describe('#readManifest', () => {

@@ -1,5 +1,5 @@
 import { getManifestFiles, inheritPrepareConfig } from '../config';
-import { readManifests } from '../expo';
+import { readManifests, logManifestFromError } from '../expo';
 import { SemanticMethod } from '../types';
 
 const SemanticReleaseError = require('@semantic-release/error');
@@ -16,11 +16,13 @@ const verifyConditions: SemanticMethod = async (config, context) => {
 			meta => context.logger.log('Found %s manifest for %s in %s', 'Expo', meta.manifest.name, meta.filename)
 		);
 	} catch (error) {
-		if (error.expo) {
-			context.logger.log('Error encountered for %s manifest %s', 'Expo', error.expo);
-		}
+		logManifestFromError(context, error);
 
-		throw new SemanticReleaseError('Could not load Expo manifest(s).', 'EINVALIDEXPOMANIFEST', error.message);
+		throw new SemanticReleaseError(
+			'Could not load Expo manifest(s).',
+			'EINVALIDEXPOMANIFEST',
+			error.message
+		);
 	}
 };
 

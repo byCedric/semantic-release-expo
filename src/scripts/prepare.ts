@@ -1,5 +1,5 @@
 import { getManifestFiles } from '../config';
-import { readManifests, writeManifest } from '../expo';
+import { readManifests, writeManifest, logManifestFromError } from '../expo';
 import { SemanticMethod } from '../types';
 import bumpVersions from '../version-bumpers';
 
@@ -26,11 +26,13 @@ const prepare: SemanticMethod = async (config, context) => {
 	try {
 		await Promise.all(writes);
 	} catch (error) {
-		if (error.expo) {
-			context.logger.log('Error encountered for %s manifest %s', 'Expo', error.expo);
-		}
+		logManifestFromError(context, error);
 
-		throw new SemanticReleaseError('Could not write Expo manifest(s)', 'EWRITEEXPOMANIFEST', error.message);
+		throw new SemanticReleaseError(
+			'Could not write Expo manifest(s)',
+			'EWRITEEXPOMANIFEST',
+			error.message
+		);
 	}
 
 	context.logger.log('Updated all %s manifests!', writes.length);

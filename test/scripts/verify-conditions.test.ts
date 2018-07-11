@@ -3,31 +3,19 @@ const readManifests = jest.fn();
 jest.doMock('../../src/expo', () => ({ readManifests, MANIFEST_FILE: 'app.json' }));
 
 import verifyConditions from '../../src/scripts/verify-conditions';
+import { createContextWithOptions } from '../factory';
 
 const SemanticReleaseError = require('@semantic-release/error');
 
 describe('scripts/verify-conditions', () => {
-	const createContextWithPrepare = (prepare?: any) => ({
-		options: {
-			prepare,
-			branch: 'master',
-			repositoryUrl: 'https://github.com/bycedric/semantic-release-expo',
-			tagFormat: '${version}',
-		},
-		logger: {
-			log: jest.fn(),
-			error: jest.fn(),
-		},
-	});
-
 	it('reads manifest and logs name', async () => {
+		const context = createContextWithOptions();
 		const config = {
 			manifests: [
 				'app.json',
 				'app.staging.json',
 			],
 		};
-		const context = createContextWithPrepare();
 
 		const firstMeta = {
 			filename: 'app.json',
@@ -65,7 +53,7 @@ describe('scripts/verify-conditions', () => {
 
 	it('throws when read manifest failed', async () => {
 		const config = {};
-		const context = createContextWithPrepare();
+		const context = createContextWithOptions();
 
 		readManifests.mockRejectedValue(new Error());
 
@@ -75,11 +63,13 @@ describe('scripts/verify-conditions', () => {
 	it('inherits prepare configration without verify conditions configuration', async () => {
 		const config = {};
 		const manifests = ['app.production.json', 'app.staging.json'];
-		const context = createContextWithPrepare([
+		const context = createContextWithOptions();
+
+		context.options!.prepare = [
 			{ path: '@semantic-release/changelog' },
 			{ path: '@semantic-release/npm' },
 			{ path: 'semantic-release-expo', manifests },
-		]);
+		];
 
 		const firstMeta = {
 			filename: 'app.production.json',
