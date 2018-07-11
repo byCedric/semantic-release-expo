@@ -15,7 +15,7 @@ const verifyConditions: SemanticMethod = async (config, context) => {
 		);
 	} catch (error) {
 		if (error.expo) {
-			context.logger.log('Error encountered for %s manifest %s', 'Expo', error.expo );
+			context.logger.log('Error encountered for %s manifest %s', 'Expo', error.expo);
 		}
 
 		throw new SemanticReleaseError('Could not load Expo manifest(s).', 'EINVALIDEXPOMANIFEST', error.message);
