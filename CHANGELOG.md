@@ -1,3 +1,20 @@
+# [1.2.0](https://github.com/bycedric/semantic-release-expo/compare/1.1.1...1.2.0) (2018-07-11)
+
+
+### Code refactors
+
+* increase usability and other minor changes ([#21](https://github.com/bycedric/semantic-release-expo/issues/21)) ([49e29b1](https://github.com/bycedric/semantic-release-expo/commit/49e29b1)), closes [#7](https://github.com/bycedric/semantic-release-expo/issues/7) [#7](https://github.com/bycedric/semantic-release-expo/issues/7)
+
+
+### Code style changes
+
+* remove extraneous space in log statement ([cdaa1b9](https://github.com/bycedric/semantic-release-expo/commit/cdaa1b9))
+
+
+### New features
+
+* inherit configuration from prepare when verifying ([#20](https://github.com/bycedric/semantic-release-expo/issues/20)) ([729baeb](https://github.com/bycedric/semantic-release-expo/commit/729baeb))
+
 ## [1.1.1](https://github.com/bycedric/semantic-release-expo/compare/1.1.0...1.1.1) (2018-07-10)
 
 
