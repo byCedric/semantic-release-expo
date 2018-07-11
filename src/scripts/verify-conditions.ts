@@ -1,4 +1,4 @@
-import { getManifestFiles } from '../config';
+import { getManifestFiles, inheritPrepareConfig } from '../config';
 import { readManifests } from '../expo';
 import { SemanticMethod } from '../types';
 
@@ -9,8 +9,10 @@ const SemanticReleaseError = require('@semantic-release/error');
  * This checks if an Expo `app.json` can be found.
  */
 const verifyConditions: SemanticMethod = async (config, context) => {
+	const verifyConfig = inheritPrepareConfig(config, context);
+
 	try {
-		(await readManifests(getManifestFiles(config))).forEach(
+		(await readManifests(getManifestFiles(verifyConfig))).forEach(
 			meta => context.logger.log('Found %s manifest for %s in %s', 'Expo', meta.manifest.name, meta.filename)
 		);
 	} catch (error) {

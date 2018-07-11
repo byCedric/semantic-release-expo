@@ -4,6 +4,8 @@ import { ManifestMeta, Manifest } from './expo';
  * The semantic release configuration itself.
  */
 export interface GlobalConfig {
+	/** The full prepare step configuration. */
+	prepare?: any;
 	/** The branch on which releases should happen. */
 	branch: string;
 	/** The Git repository URL, in any supported format. */
