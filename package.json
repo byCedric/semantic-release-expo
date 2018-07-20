@@ -49,7 +49,7 @@
 		"commit-types-peakfijn": "^0.4.0",
 		"commitizen": "^2.10.1",
 		"commitlint-config-peakfijn": "^0.4.0",
-		"conventional-changelog-peakfijn": "^0.4.0",
+		"conventional-changelog-peakfijn": "^0.5.0",
 		"cz-changelog-peakfijn": "^0.4.0",
 		"jest": "^23.1.0",
 		"semantic-release": "^15.4.2",
