@@ -27,7 +27,7 @@ module.exports = {
 		'@semantic-release/npm',
 		{
 			path: 'semantic-release-git-branches',
-			message: 'chore: create new release ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}',
+			message: 'release: create new version ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}',
 			branchMerges: [
 				'develop',
 				'master',
