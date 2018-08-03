@@ -54,7 +54,7 @@
 		"jest": "^23.1.0",
 		"semantic-release": "^15.4.2",
 		"semantic-release-git-branches": "^1.1.0",
-		"ts-jest": "^23.0.0",
+		"ts-jest": "^23.1.2",
 		"typescript": "^2.8.3"
 	},
 	"jest": {
