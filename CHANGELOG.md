@@ -1,3 +1,21 @@
+## [1.2.1](https://github.com/bycedric/semantic-release-expo/compare/1.2.0...1.2.1) (2018-08-04)
+
+
+### Bug fixes
+
+* set jsdom test url for local storage support ([#29](https://github.com/bycedric/semantic-release-expo/issues/29)) ([1d2e9b6](https://github.com/bycedric/semantic-release-expo/commit/1d2e9b6))
+
+
+### Code refactors
+
+* upgrade [@semantic-release](https://github.com/semantic-release)/changelog to version 3.0.0 ([#23](https://github.com/bycedric/semantic-release-expo/issues/23)) ([fa3396a](https://github.com/bycedric/semantic-release-expo/commit/fa3396a))
+* upgrade commit-types-peakfijn to version 0.5.0 ([#24](https://github.com/bycedric/semantic-release-expo/issues/24)) ([4f63ab5](https://github.com/bycedric/semantic-release-expo/commit/4f63ab5))
+* upgrade conventional-changelog-peakfijn to version 0.5.0 ([#25](https://github.com/bycedric/semantic-release-expo/issues/25)) ([be7929d](https://github.com/bycedric/semantic-release-expo/commit/be7929d))
+* upgrade cz-changelog-peakfijn to version 0.5.0 ([#26](https://github.com/bycedric/semantic-release-expo/issues/26)) ([a9bd560](https://github.com/bycedric/semantic-release-expo/commit/a9bd560))
+* upgrade fs-extra to version 7.0.0 ([#22](https://github.com/bycedric/semantic-release-expo/issues/22)) ([f5198d1](https://github.com/bycedric/semantic-release-expo/commit/f5198d1))
+* upgrade ts-jest to version 23.1.2 ([#31](https://github.com/bycedric/semantic-release-expo/issues/31)) ([fb14ece](https://github.com/bycedric/semantic-release-expo/commit/fb14ece))
+* use release commit type for automated releases ([af87788](https://github.com/bycedric/semantic-release-expo/commit/af87788))
+
 # [1.2.0](https://github.com/bycedric/semantic-release-expo/compare/1.1.1...1.2.0) (2018-07-11)
 
 
