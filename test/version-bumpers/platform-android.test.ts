@@ -22,7 +22,7 @@ describe('version-bumpers/platform-android', () => {
 		const oldManifest = {
 			name: 'test',
 			version: '1.2.0',
-			android: { versionCode: 6 },
+			android: { versionCode: 10200 },
 			ios: { buildNumber: '1.2.0' },
 		};
 
@@ -40,15 +40,15 @@ describe('version-bumpers/platform-android', () => {
 		expect(context.logger.log).toBeCalledWith(
 			'%s manifest android version changed (%s => %s) in %s',
 			'Expo',
-			6,
-			7,
+			10200,
+			10300,
 			'app.json',
 		);
 
 		expect(newManifest).toMatchObject({
 			name: 'test',
 			version: '1.2.0',
-			android: { versionCode: 7 },
+			android: { versionCode: 10300 },
 			ios: { buildNumber: '1.2.0' },
 		});
 	});
