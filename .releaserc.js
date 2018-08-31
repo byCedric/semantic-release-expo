@@ -1,4 +1,9 @@
 const commitTypes = require('commit-types-peakfijn');
+const releaseRules = [{ breaking: true, release: 'major' }].concat(
+	Object.keys(commitTypes)
+		.map(type => ({ type, release: commitTypes[type].release }))
+		.filter(rule => !!rule.release)
+);
 
 module.exports = {
 	branch: 'master',
@@ -7,9 +12,7 @@ module.exports = {
 	analyzeCommits: {
 		path: '@semantic-release/commit-analyzer',
 		preset: 'peakfijn',
-		releaseRules: Object.keys(commitTypes)
-			.map(type => ({ type, release: commitTypes[type].release }))
-			.filter(rule => !!rule.release),
+		releaseRules,
 	},
 	generateNotes: [
 		{
