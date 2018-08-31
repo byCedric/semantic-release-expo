@@ -1,3 +1,30 @@
+# [2.0.0](https://github.com/bycedric/semantic-release-expo/compare/1.2.1...2.0.0) (2018-08-31)
+
+
+### Bug fixes
+
+* breaking changes behaviour with semantic release ([3844459](https://github.com/bycedric/semantic-release-expo/commit/3844459))
+* disable spammy codecov messages in pull requests ([29225be](https://github.com/bycedric/semantic-release-expo/commit/29225be))
+
+
+### Code refactors
+
+* upgrade commit-types-peakfijn to version 0.6.0 ([#32](https://github.com/bycedric/semantic-release-expo/issues/32)) ([5065b48](https://github.com/bycedric/semantic-release-expo/commit/5065b48))
+* upgrade conventional-changelog-peakfijn to version 0.6.0 ([#33](https://github.com/bycedric/semantic-release-expo/issues/33)) ([adcbc8c](https://github.com/bycedric/semantic-release-expo/commit/adcbc8c))
+* upgrade cz-changelog-peakfijn to version 0.6.0 ([#34](https://github.com/bycedric/semantic-release-expo/issues/34)) ([fe462c6](https://github.com/bycedric/semantic-release-expo/commit/fe462c6))
+
+
+### New features
+
+* make android version deterministic ([#35](https://github.com/bycedric/semantic-release-expo/issues/35)) ([1428f1a](https://github.com/bycedric/semantic-release-expo/commit/1428f1a))
+
+
+### BREAKING CHANGE
+
+* android incremental build number is replaced. This now uses an integer value calculated by multiple variables.
+
+https://medium.com/@maxirosson/versioning-android-apps-d6ec171cfd82
+
 ## [1.2.1](https://github.com/bycedric/semantic-release-expo/compare/1.2.0...1.2.1) (2018-08-04)
 
 
