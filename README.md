@@ -14,7 +14,7 @@ An [Expo][expo] implementation for [semantic release][semantic-release], so you 
 Semantic release will first determine a new version based on your likings. 
 Then this plugin will search for your [Expo manifest][expo-manifest] and update it accordingly. 
 Not only will this update the [`version`][expo-version] property within the manifest. 
-It will set the version to the [iOS `buildNumber`][expo-version-ios] and also set the [Android `versionCode`][expo-version-android] to the following schema: `{major,2}{minor,2}{patch,2}`.
+It will set the version to the [iOS `buildNumber`][expo-version-ios] and also set the [Android `versionCode`][expo-version-android] to the following schema: `{expoSDKMajor,2}0{major,2}{minor,2}{patch,2}`.
 
 ## Verify Conditions
 
