@@ -1,8 +1,9 @@
 import { getManifestFiles } from '../config';
-import { readManifests, writeManifest, logManifestFromError } from '../expo';
+import { logManifestFromError, readManifests, writeManifest } from '../expo';
 import { SemanticMethod } from '../types';
 import bumpVersions from '../version-bumpers';
 
+// tslint:disable-next-line:no-var-requires
 const SemanticReleaseError = require('@semantic-release/error');
 
 /**
@@ -12,7 +13,7 @@ const SemanticReleaseError = require('@semantic-release/error');
  */
 const prepare: SemanticMethod = async (config, context) => {
 	const files = await readManifests(getManifestFiles(config));
-	const writes = files.map(meta => (
+	const writes = files.map((meta) => (
 		writeManifest(meta, bumpVersions(meta, config, context)).then(() => {
 			context.logger.log(
 				'New %s manifest written for %s to %s',
@@ -31,7 +32,7 @@ const prepare: SemanticMethod = async (config, context) => {
 		throw new SemanticReleaseError(
 			'Could not write Expo manifest(s)',
 			'EWRITEEXPOMANIFEST',
-			error.message
+			error.message,
 		);
 	}
 

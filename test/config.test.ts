@@ -1,11 +1,6 @@
-import { createContextLogger, createContextOptions } from './factory';
+import { getManifestFiles, getPrepareConfig, getVersionTemplates, inheritPrepareConfig } from '../src/config';
 import { MANIFEST_FILE } from '../src/expo';
-import {
-	getManifestFiles,
-	getVersionTemplates,
-	getPrepareConfig,
-	inheritPrepareConfig,
-} from '../src/config';
+import { createContextLogger, createContextOptions } from './factory';
 
 describe('config', () => {
 	describe('#getManifestFiles', () => {
@@ -21,31 +16,31 @@ describe('config', () => {
 			const manifests = ['app.staging.json', 'app.production.json'];
 
 			expect(getManifestFiles({ manifests })).toEqual(expect.arrayContaining(manifests));
-		})
+		});
 	});
 
 	describe('#getVersionTemplates', () => {
 		it('returns recommended templates by default', () => {
 			expect(getVersionTemplates()).toMatchObject({
-				version: '${recommended}',
 				android: '${recommended}',
 				ios: '${recommended}',
+				version: '${recommended}',
 			});
 		});
 
 		it('uses template string for all templates', () => {
 			expect(getVersionTemplates({ versions: '${code}' })).toMatchObject({
-				version: '${code}',
 				android: '${code}',
 				ios: '${code}',
+				version: '${code}',
 			});
 		});
 
 		it('uses independent strings for all templates', () => {
 			const versions = {
-				version: '${next.raw}',
 				android: '${code}',
 				ios: '${next.raw}',
+				version: '${next.raw}',
 			};
 
 			expect(getVersionTemplates({ versions })).toMatchObject(versions);
@@ -93,8 +88,8 @@ describe('config', () => {
 				{ path: '@semantic-release/changelog' },
 				{ path: '@semantic-release/npm' },
 				{
-					path: 'semantic-release-expo',
 					manifests: ['app.production.json', 'app.staging.json'],
+					path: 'semantic-release-expo',
 				},
 			]);
 

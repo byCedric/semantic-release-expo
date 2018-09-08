@@ -1,21 +1,22 @@
-const _template = jest.fn();
+const lodashTemplate = jest.fn();
 const getVersionTemplates = jest.fn();
 const getAndroidPlatform = jest.fn();
 const getIosPlatform = jest.fn();
 
-jest.doMock('lodash.template', () => _template);
+jest.doMock('lodash.template', () => lodashTemplate);
 jest.doMock('../src/config', () => ({ getVersionTemplates }));
-jest.doMock('../src/expo', () => ({ getAndroidPlatform, getIosPlatform }))
+jest.doMock('../src/expo', () => ({ getAndroidPlatform, getIosPlatform }));
 
 import { coerce } from 'semver';
-import { createContext, createManifestMeta } from './factory';
 import {
-	getVersionCode,
-	getDefaultVariables,
-	calculateVersion,
 	calculateAndroidVersion,
 	calculateIosVersion,
+	calculateVersion,
+	getDefaultVariables,
+	getVersionCode,
 } from '../src/version';
+
+import { createContext, createManifestMeta } from './factory';
 
 describe('version', () => {
 	describe('#getVersionCode', () => {
@@ -32,49 +33,49 @@ describe('version', () => {
 			const meta = createManifestMeta({ name: 'test-app', sdkVersion: '29.0.1' });
 			const context = createContext({
 				last: {
-					version: '2.5.12',
-					gitTag: 'v2.5.12',
 					gitHead: '192aqs',
+					gitTag: 'v2.5.12',
+					version: '2.5.12',
 				},
 				next: {
-					version: '3.0.0',
-					gitTag: 'v3.0.0',
 					gitHead: '271abq',
+					gitTag: 'v3.0.0',
 					notes: 'New major release',
+					version: '3.0.0',
 				},
 			});
 
 			expect(getDefaultVariables(meta, context)).toMatchObject({
+				code: 290030000,
 				expo: coerce('29.0.1'),
 				last: coerce('2.5.12'),
 				next: coerce('3.0.0'),
-				code: 290030000,
 				recommended: '3.0.0',
 			});
-		})
+		});
 	});
 
 	const sharedConfig = {};
 	const sharedMeta = createManifestMeta({ name: 'test-app', sdkVersion: '29.1.0' });
 	const sharedContext = createContext({
 		last: {
-			version: '4.5.1',
-			gitTag: 'v4.5.1',
 			gitHead: '12j1ad',
+			gitTag: 'v4.5.1',
+			version: '4.5.1',
 		},
 		next: {
-			version: '4.6.0',
-			gitTag: 'v4.6.0',
 			gitHead: 'kl1dsq',
+			gitTag: 'v4.6.0',
 			notes: 'New minor release',
+			version: '4.6.0',
 		},
 	});
 
 	const sharedVariables = {
+		code: 290040600,
 		expo: coerce('29.1.0'),
 		last: coerce('4.5.1'),
 		next: coerce('4.6.0'),
-		code: 290040600,
 		recommended: '4.6.0',
 	};
 
@@ -83,11 +84,11 @@ describe('version', () => {
 			const templateCompiler = jest.fn();
 
 			getVersionTemplates.mockReturnValue({ version: '${next.raw}' });
-			_template.mockReturnValue(templateCompiler);
+			lodashTemplate.mockReturnValue(templateCompiler);
 			templateCompiler.mockReturnValue('4.6.0');
 
 			expect(calculateVersion(sharedMeta, sharedConfig, sharedContext)).toMatch('4.6.0');
-			expect(_template).toBeCalledWith('${next.raw}');
+			expect(lodashTemplate).toBeCalledWith('${next.raw}');
 			expect(templateCompiler).toBeCalledWith({ ...sharedVariables, increment: 1 });
 		});
 
@@ -95,20 +96,20 @@ describe('version', () => {
 			const templateCompiler = jest.fn();
 			const meta = createManifestMeta({
 				name: 'test-app',
-				version: '8',
 				sdkVersion: '28.0.0',
+				version: '8',
 			});
 
 			getVersionTemplates.mockReturnValue({ version: '${increment}' });
-			_template.mockReturnValue(templateCompiler);
+			lodashTemplate.mockReturnValue(templateCompiler);
 			templateCompiler.mockReturnValue('9');
 
 			expect(calculateVersion(meta, sharedConfig, sharedContext)).toMatch('9');
-			expect(_template).toBeCalledWith('${increment}');
+			expect(lodashTemplate).toBeCalledWith('${increment}');
 			expect(templateCompiler).toBeCalledWith({
 				...sharedVariables,
-				expo: coerce('28.0.0'),
 				code: 280040600,
+				expo: coerce('28.0.0'),
 				increment: 9,
 			});
 		});
@@ -119,16 +120,16 @@ describe('version', () => {
 			const templateCompiler = jest.fn();
 
 			getVersionTemplates.mockReturnValue({ android: '${code}' });
-			getAndroidPlatform.mockReturnValue({ versionCode: '290040501' })
-			_template.mockReturnValue(templateCompiler);
+			getAndroidPlatform.mockReturnValue({ versionCode: '290040501' });
+			lodashTemplate.mockReturnValue(templateCompiler);
 			templateCompiler.mockReturnValue('290040600');
 
 			expect(calculateAndroidVersion(sharedMeta, sharedConfig, sharedContext)).toMatch('290040600');
-			expect(_template).toBeCalledWith('${code}');
+			expect(lodashTemplate).toBeCalledWith('${code}');
 			expect(templateCompiler).toBeCalledWith({
 				...sharedVariables,
-				recommended: sharedVariables.code,
 				increment: 290040502,
+				recommended: sharedVariables.code,
 			});
 		});
 	});
@@ -139,11 +140,11 @@ describe('version', () => {
 
 			getVersionTemplates.mockReturnValue({ ios: '${recommended}' });
 			getIosPlatform.mockReturnValue({ buildNumber: '4.5.1' });
-			_template.mockReturnValue(templateCompiler);
+			lodashTemplate.mockReturnValue(templateCompiler);
 			templateCompiler.mockReturnValue('4.6.0');
 
 			expect(calculateIosVersion(sharedMeta, sharedConfig, sharedContext)).toMatch('4.6.0');
-			expect(_template).toBeCalledWith('${recommended}');
+			expect(lodashTemplate).toBeCalledWith('${recommended}');
 			expect(templateCompiler).toBeCalledWith({ ...sharedVariables, increment: 1 });
 		});
 
@@ -151,23 +152,23 @@ describe('version', () => {
 			const templateCompiler = jest.fn();
 			const meta = createManifestMeta({
 				name: 'test-app',
-				version: '8',
 				sdkVersion: '28.0.0',
+				version: '8',
 			});
 
 			getVersionTemplates.mockReturnValue({ ios: '${increment}' });
-			getIosPlatform.mockReturnValue({ buildNumber: '8' })
-			_template.mockReturnValue(templateCompiler);
+			getIosPlatform.mockReturnValue({ buildNumber: '8' });
+			lodashTemplate.mockReturnValue(templateCompiler);
 			templateCompiler.mockReturnValue('9');
 
 			expect(calculateIosVersion(meta, sharedConfig, sharedContext)).toMatch('9');
-			expect(_template).toBeCalledWith('${increment}');
+			expect(lodashTemplate).toBeCalledWith('${increment}');
 			expect(templateCompiler).toBeCalledWith({
 				...sharedVariables,
-				expo: coerce('28.0.0'),
 				code: 280040600,
+				expo: coerce('28.0.0'),
 				increment: 9,
 			});
 		});
 	});
-})
+});

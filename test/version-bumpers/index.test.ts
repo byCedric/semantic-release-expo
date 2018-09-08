@@ -16,10 +16,10 @@ describe('version-bumpers', () => {
 		const config = createConfig();
 		const context = createContext({
 			next: {
-				version: '9.1.0',
-				gitTag: 'v9.1.0',
 				gitHead: 'abc12',
+				gitTag: 'v9.1.0',
 				notes: 'Testing a new version',
+				version: '9.1.0',
 			},
 		});
 
@@ -39,25 +39,25 @@ describe('version-bumpers', () => {
 		const config = createConfig();
 		const context = createContext({
 			next: {
-				version: '2.4.0',
-				gitTag: 'v2.4.0',
 				gitHead: 'abc12',
+				gitTag: 'v2.4.0',
 				notes: 'Testing a new version',
+				version: '2.4.0',
 			},
 		});
 
 		const oldMeta = createManifestMeta({
-			name: 'test',
-			version: '2.3.0',
 			android: { versionCode: 12 },
 			ios: { buildNumber: '2.3.0' },
+			name: 'test',
+			version: '2.3.0',
 		});
 
 		// reuse the old manifest meta, stringified contents should match the exact file content (not updated one).
-		const createPatchedManifestMeta = (oldMeta: any, manifest: any) => ({
-			...oldMeta,
+		const createPatchedManifestMeta = (meta: any, manifest: any) => ({
+			...meta,
 			manifest: {
-				...oldMeta.manifest,
+				...meta.manifest,
 				...manifest,
 			},
 		});

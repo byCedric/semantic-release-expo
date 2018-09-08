@@ -1,5 +1,5 @@
-import { ManifestMeta, Manifest } from './expo';
 import { SemVer } from 'semver';
+import { Manifest, ManifestMeta } from './expo';
 
 /**
  * The semantic release configuration itself.
@@ -26,7 +26,7 @@ export interface Config {
 		android?: string;
 		/** The ios-specific build number template to use. */
 		ios?: string;
-	},
+	};
 }
 
 export interface LastRelease {

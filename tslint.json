@@ -1,0 +1,10 @@
+{
+	"extends": [
+		"tslint:recommended"
+	],
+	"rules": {
+		"indent": [true, "tabs"],
+		"interface-name": [true, "never-prefix"],
+		"quotemark": [true, "single"]
+	}
+}

@@ -1,7 +1,8 @@
 import { getManifestFiles, inheritPrepareConfig } from '../config';
-import { readManifests, logManifestFromError } from '../expo';
+import { logManifestFromError, readManifests } from '../expo';
 import { SemanticMethod } from '../types';
 
+// tslint:disable-next-line:no-var-requires
 const SemanticReleaseError = require('@semantic-release/error');
 
 /**
@@ -13,7 +14,14 @@ const verifyConditions: SemanticMethod = async (config, context) => {
 
 	try {
 		(await readManifests(getManifestFiles(verifyConfig))).forEach(
-			meta => context.logger.log('Found %s manifest for %s in %s', 'Expo', meta.manifest.name, meta.filename)
+			(meta) => {
+				context.logger.log(
+					'Found %s manifest for %s in %s',
+					'Expo',
+					meta.manifest.name,
+					meta.filename,
+				);
+			},
 		);
 	} catch (error) {
 		logManifestFromError(context, error);
@@ -21,7 +29,7 @@ const verifyConditions: SemanticMethod = async (config, context) => {
 		throw new SemanticReleaseError(
 			'Could not load Expo manifest(s).',
 			'EINVALIDEXPOMANIFEST',
-			error.message
+			error.message,
 		);
 	}
 };

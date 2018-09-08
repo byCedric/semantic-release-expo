@@ -1,7 +1,7 @@
 import _template from 'lodash.template';
 import { coerce, SemVer } from 'semver';
 import { getVersionTemplates } from './config';
-import { ManifestMeta, getAndroidPlatform, getIosPlatform } from './expo';
+import { getAndroidPlatform, getIosPlatform, ManifestMeta } from './expo';
 import { Context, VersionCalculator } from './types';
 
 /**
@@ -24,11 +24,11 @@ export const getDefaultVariables = (meta: ManifestMeta, context: Context) => {
 	const next = coerce(context.nextRelease!.version);
 
 	return {
-		expo, last, next,
 		code: (next && expo) ? getVersionCode(next, expo) : '000000000',
+		expo, last, next,
 		recommended: context.nextRelease!.version,
 	};
-}
+};
 
 /**
  * Calculate the (next) version for the "root" expo manifest version.
@@ -55,10 +55,10 @@ export const calculateAndroidVersion: VersionCalculator = (meta, config, context
 
 	return _template(android)({
 		...variables,
-		recommended: variables.code,
 		increment: (Number(androidConfig.versionCode) || 0) + 1,
+		recommended: variables.code,
 	});
-}
+};
 
 /**
  * Calculate the (next) version for the ios platform.
