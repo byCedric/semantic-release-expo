@@ -7,7 +7,7 @@
 .editorconfig
 .gitignore
 .npmignore
-.releaserc.yml
+.releaserc.js
 .travis.yml
 codecov.yml
 tsconfig.json
