@@ -1,3 +1,15 @@
+# [2.1.0](https://github.com/bycedric/semantic-release-expo/compare/2.0.0...2.1.0) (2018-09-08)
+
+
+### Bug fixes
+
+* exclude semantic release configuration from npm ([c7c212e](https://github.com/bycedric/semantic-release-expo/commit/c7c212e))
+
+
+### New features
+
+* add configurable version templates ([#36](https://github.com/bycedric/semantic-release-expo/issues/36)) ([5745c9d](https://github.com/bycedric/semantic-release-expo/commit/5745c9d))
+
 # [2.0.0](https://github.com/bycedric/semantic-release-expo/compare/1.2.1...2.0.0) (2018-08-31)
 
 
