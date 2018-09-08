@@ -31,10 +31,12 @@
 	},
 	"peerDependencies": {},
 	"dependencies": {
+		"@types/lodash.template": "^4.4.4",
 		"@types/semver": "^5.5.0",
 		"detect-indent": "^5.0.0",
 		"detect-newline": "^2.1.0",
 		"fs-extra": "^7.0.0",
+		"lodash.template": "^4.4.0",
 		"semver": "^5.5.1"
 	},
 	"devDependencies": {

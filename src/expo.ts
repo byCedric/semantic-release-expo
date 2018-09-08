@@ -1,6 +1,6 @@
 import { readFile, readJson, writeJson } from 'fs-extra';
-import * as detectIndent from 'detect-indent';
-import * as detectNewline from 'detect-newline';
+import detectIndent from 'detect-indent';
+import detectNewline from 'detect-newline';
 import { Context } from './types';
 
 /**
@@ -10,8 +10,9 @@ import { Context } from './types';
  */
 export interface Manifest {
 	name: string;
+	version?: string;
 	platforms?: string[];
-	android?: { versionCode: number };
+	android?: { versionCode: string | number };
 	ios?: { buildNumber: string };
 	[propName: string]: any;
 }

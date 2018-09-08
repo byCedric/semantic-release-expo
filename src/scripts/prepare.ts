@@ -13,7 +13,7 @@ const SemanticReleaseError = require('@semantic-release/error');
 const prepare: SemanticMethod = async (config, context) => {
 	const files = await readManifests(getManifestFiles(config));
 	const writes = files.map(meta => (
-		writeManifest(meta, bumpVersions(meta, context)).then(() => {
+		writeManifest(meta, bumpVersions(meta, config, context)).then(() => {
 			context.logger.log(
 				'New %s manifest written for %s to %s',
 				'Expo',

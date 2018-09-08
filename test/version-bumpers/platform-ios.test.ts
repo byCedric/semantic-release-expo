@@ -1,55 +1,43 @@
 const getIosPlatform = jest.fn();
+const calculateIosVersion = jest.fn();
 
 jest.doMock('../../src/expo', () => ({ getIosPlatform }));
+jest.doMock('../../src/version', () => ({ calculateIosVersion }));
 
 import bumpPlatformIos from '../../src/version-bumpers/platform-ios';
+import { createContext, createConfig, createManifestMeta } from '../factory';
 
 describe('version-bumpers/platform-ios', () => {
 	it('returns new manifest with bumped ios version', () => {
-		const context = {
-			logger: {
-				log: jest.fn(),
-				error: jest.fn(),
-			},
-			nextRelease: {
-				version: '0.2.1',
-				gitTag: 'v0.2.1',
-				gitHead: 'abc12',
-				notes: 'Testing a new version',
-			},
-		};
-
-		const oldManifest = {
+		const config = createConfig();
+		const context = createContext();
+		const meta = createManifestMeta({
 			name: 'test',
-			version: '0.2.0',
+			version: context.lastRelease!.version,
 			android: { versionCode: 6 },
-			ios: { buildNumber: '0.2.0' },
-		};
+			ios: { buildNumber: context.lastRelease!.version },
+		});
 
-		const meta = {
-			filename: 'app.json',
-			content: JSON.stringify(oldManifest),
-			manifest: oldManifest,
-		};
+		getIosPlatform.mockReturnValue(meta.manifest.ios);
+		calculateIosVersion.mockReturnValue('newversion');
 
-		getIosPlatform.mockReturnValue(oldManifest.ios);
+		const manifest = bumpPlatformIos(meta, config, context);
 
-		const newManifest = bumpPlatformIos(meta, context);
-
-		expect(getIosPlatform).toBeCalledWith(oldManifest);
+		expect(getIosPlatform).toBeCalledWith(meta.manifest);
+		expect(calculateIosVersion).toBeCalledWith(meta, config, context);
 		expect(context.logger.log).toBeCalledWith(
 			'%s manifest ios version changed (%s => %s) in %s',
 			'Expo',
-			'0.2.0',
-			'0.2.1',
-			'app.json',
+			meta.manifest.ios!.buildNumber,
+			'newversion',
+			meta.filename,
 		);
 
-		expect(newManifest).toMatchObject({
+		expect(manifest).toMatchObject({
 			name: 'test',
-			version: '0.2.0',
+			version: context.lastRelease!.version,
 			android: { versionCode: 6 },
-			ios: { buildNumber: '0.2.1' },
+			ios: { buildNumber: 'newversion' },
 		});
 	});
 });

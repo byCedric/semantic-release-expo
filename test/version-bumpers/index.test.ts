@@ -4,86 +4,78 @@ const bumpPlatformIos = jest.fn();
 const bumpVersion = jest.fn();
 
 jest.doMock('../../src/expo', () => ({ getPlatforms }));
-jest.doMock('../../src/version-bumpers/platform-android', () => ({ default: bumpPlatformAndroid }));
-jest.doMock('../../src/version-bumpers/platform-ios', () => ({ default: bumpPlatformIos }));
-jest.doMock('../../src/version-bumpers/version', () => ({ default: bumpVersion }));
+jest.doMock('../../src/version-bumpers/platform-android', () => bumpPlatformAndroid);
+jest.doMock('../../src/version-bumpers/platform-ios', () => bumpPlatformIos);
+jest.doMock('../../src/version-bumpers/version', () => bumpVersion);
 
 import bumpAllVersion from '../../src/version-bumpers';
+import { createConfig, createContext, createManifestMeta } from '../factory';
 
 describe('version-bumpers', () => {
 	it('returns new manifest with bumped version', () => {
-		const context = {
-			logger: {
-				log: jest.fn(),
-				error: jest.fn(),
-			},
-			nextRelease: {
+		const config = createConfig();
+		const context = createContext({
+			next: {
 				version: '9.1.0',
 				gitTag: 'v9.1.0',
 				gitHead: 'abc12',
 				notes: 'Testing a new version',
 			},
-		};
+		});
 
-		const oldManifest = { name: 'test', version: '9.0.0' };
-		const newManifest = { name: 'test', version: '9.1.0' };
-
-		const meta = {
-			filename: 'app.json',
-			content: JSON.stringify(oldManifest),
-			manifest: oldManifest,
-		};
+		const oldMeta = createManifestMeta({ name: 'test', version: '9.0.0' });
+		const newMeta = createManifestMeta({ name: 'test', version: '9.1.9' });
 
 		getPlatforms.mockReturnValue([]);
-		bumpVersion.mockReturnValue(newManifest);
+		bumpVersion.mockReturnValue(newMeta.manifest);
 
-		const received = bumpAllVersion(meta, context);
+		const received = bumpAllVersion(oldMeta, config, context);
 
-		expect(received).toBe(newManifest);
-		expect(bumpVersion).toBeCalledWith(meta, context);
+		expect(received).toBe(newMeta.manifest);
+		expect(bumpVersion).toBeCalledWith(oldMeta, config, context);
 	});
 
 	it('returns new manifest with bumped version and platform versions', () => {
-		const context = {
-			logger: {
-				log: jest.fn(),
-				error: jest.fn(),
-			},
-			nextRelease: {
+		const config = createConfig();
+		const context = createContext({
+			next: {
 				version: '2.4.0',
 				gitTag: 'v2.4.0',
 				gitHead: 'abc12',
 				notes: 'Testing a new version',
 			},
-		};
+		});
 
-		const oldManifest = {
+		const oldMeta = createManifestMeta({
 			name: 'test',
 			version: '2.3.0',
 			android: { versionCode: 12 },
 			ios: { buildNumber: '2.3.0' },
-		};
+		});
 
-		const newVersionManifest = { ...oldManifest, version: '2.4.0' };
-		const newAndroidManifest = { ...newVersionManifest, android: { versionCode: 13 } };
-		const newIosManifest = { ...newAndroidManifest, ios: { buildNumber: '2.4.0' } };
+		// reuse the old manifest meta, stringified contents should match the exact file content (not updated one).
+		const createPatchedManifestMeta = (oldMeta: any, manifest: any) => ({
+			...oldMeta,
+			manifest: {
+				...oldMeta.manifest,
+				...manifest,
+			},
+		});
 
-		const meta = {
-			filename: 'app.json',
-			content: JSON.stringify(oldManifest),
-			manifest: oldManifest,
-		};
+		const newVersionMeta = createPatchedManifestMeta(oldMeta, { version: '2.4.0' });
+		const newAndroidMeta = createPatchedManifestMeta(newVersionMeta, { android: { versionCode: 13 } });
+		const newIosMeta = createPatchedManifestMeta(newAndroidMeta, { ios: { buildNumber: '2.4.0' } });
 
 		getPlatforms.mockReturnValue(['android', 'ios']);
-		bumpVersion.mockReturnValue(newVersionManifest);
-		bumpPlatformAndroid.mockReturnValue(newAndroidManifest);
-		bumpPlatformIos.mockReturnValue(newIosManifest);
+		bumpVersion.mockReturnValue(newVersionMeta.manifest);
+		bumpPlatformAndroid.mockReturnValue(newAndroidMeta.manifest);
+		bumpPlatformIos.mockReturnValue(newIosMeta.manifest);
 
-		const received = bumpAllVersion(meta, context);
+		const received = bumpAllVersion(oldMeta, config, context);
 
-		expect(received).toBe(newIosManifest);
-		expect(bumpVersion).toBeCalledWith(meta, context);
-		expect(bumpPlatformAndroid).toBeCalledWith({ ...meta, manifest: newVersionManifest }, context);
-		expect(bumpPlatformIos).toBeCalledWith({ ...meta, manifest: newAndroidManifest }, context);
+		expect(received).toBe(newIosMeta.manifest);
+		expect(bumpVersion).toBeCalledWith(oldMeta, config, context);
+		expect(bumpPlatformAndroid).toBeCalledWith(newVersionMeta, config, context);
+		expect(bumpPlatformIos).toBeCalledWith(newAndroidMeta, config, context);
 	});
 });

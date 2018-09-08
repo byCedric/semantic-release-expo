@@ -1,5 +1,11 @@
-import { getManifestFiles, getPrepareConfig, inheritPrepareConfig } from '../src/config';
+import { createContextLogger, createContextOptions } from './factory';
 import { MANIFEST_FILE } from '../src/expo';
+import {
+	getManifestFiles,
+	getVersionTemplates,
+	getPrepareConfig,
+	inheritPrepareConfig,
+} from '../src/config';
 
 describe('config', () => {
 	describe('#getManifestFiles', () => {
@@ -18,16 +24,39 @@ describe('config', () => {
 		})
 	});
 
+	describe('#getVersionTemplates', () => {
+		it('returns recommended templates by default', () => {
+			expect(getVersionTemplates()).toMatchObject({
+				version: '${recommended}',
+				android: '${recommended}',
+				ios: '${recommended}',
+			});
+		});
+
+		it('uses template string for all templates', () => {
+			expect(getVersionTemplates({ versions: '${code}' })).toMatchObject({
+				version: '${code}',
+				android: '${code}',
+				ios: '${code}',
+			});
+		});
+
+		it('uses independent strings for all templates', () => {
+			const versions = {
+				version: '${next.raw}',
+				android: '${code}',
+				ios: '${next.raw}',
+			};
+
+			expect(getVersionTemplates({ versions })).toMatchObject(versions);
+		});
+	});
+
 	const createContextWithPrepare = (prepare: any) => ({
+		...createContextLogger(),
 		options: {
+			...createContextOptions().options,
 			prepare,
-			branch: 'master',
-			repositoryUrl: 'https://github.com/bycedric/semantic-release-expo',
-			tagFormat: '${version}',
-		},
-		logger: {
-			log: jest.fn(),
-			error: jest.fn(),
 		},
 	});
 
