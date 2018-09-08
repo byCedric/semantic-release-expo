@@ -1,4 +1,4 @@
-import { Config, Context } from './types';
+import { Config, Context, VersionTemplates } from './types';
 import { MANIFEST_FILE } from './expo';
 
 /**
@@ -11,6 +11,20 @@ export function getManifestFiles(config: Config): string[] {
 	}
 
 	return config.manifests;
+}
+
+/**
+ * Get the template functions that builds the platform specific build numbers.
+ */
+export function getVersionTemplates(config?: Config): VersionTemplates {
+	const template = config && config.versions;
+	const fallback = typeof template === 'string' ? template : '${recommended}';
+
+	return {
+		version: (typeof template === 'object' && template.version) ? template.version : fallback,
+		android: (typeof template === 'object' && template.android) ? template.android : fallback,
+		ios: (typeof template === 'object' && template.ios) ? template.ios : fallback,
+	};
 }
 
 /**

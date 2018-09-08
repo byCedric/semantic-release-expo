@@ -3,13 +3,13 @@ const readManifests = jest.fn();
 jest.doMock('../../src/expo', () => ({ readManifests, MANIFEST_FILE: 'app.json' }));
 
 import verifyConditions from '../../src/scripts/verify-conditions';
-import { createContextWithOptions } from '../factory';
+import { createContext } from '../factory';
 
 const SemanticReleaseError = require('@semantic-release/error');
 
 describe('scripts/verify-conditions', () => {
 	it('reads manifest and logs name', async () => {
-		const context = createContextWithOptions();
+		const context = createContext();
 		const config = {
 			manifests: [
 				'app.json',
@@ -53,7 +53,7 @@ describe('scripts/verify-conditions', () => {
 
 	it('throws when read manifest failed', async () => {
 		const config = {};
-		const context = createContextWithOptions();
+		const context = createContext();
 
 		readManifests.mockRejectedValue(new Error());
 
@@ -63,7 +63,7 @@ describe('scripts/verify-conditions', () => {
 	it('inherits prepare configration without verify conditions configuration', async () => {
 		const config = {};
 		const manifests = ['app.production.json', 'app.staging.json'];
-		const context = createContextWithOptions();
+		const context = createContext();
 
 		context.options!.prepare = [
 			{ path: '@semantic-release/changelog' },

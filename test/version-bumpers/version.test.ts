@@ -1,45 +1,36 @@
+const calculateVersion = jest.fn();
+
+jest.doMock('../../src/version', () => ({ calculateVersion }));
+
 import bumpVersion from '../../src/version-bumpers/version';
+import { createContext, createConfig, createManifestMeta } from '../factory';
 
 describe('version-bumpers/version', () => {
 	it('returns new manifest with bumped version', () => {
-		const context = {
-			logger: {
-				log: jest.fn(),
-				error: jest.fn(),
-			},
-			nextRelease: {
-				version: '4.0.0',
-				gitTag: 'v4.0.0',
-				gitHead: 'abc12',
-				notes: 'Testing a new version',
-			},
-		};
-
-		const oldManifest = {
+		const config = createConfig();
+		const context = createContext();
+		const meta = createManifestMeta({
 			name: 'test',
-			version: '3.2.1',
+			version: context.lastRelease!.version,
 			anything: 'else',
-		};
+		});
 
-		const meta = {
-			filename: 'app.json',
-			content: JSON.stringify(oldManifest),
-			manifest: oldManifest,
-		};
+		calculateVersion.mockReturnValue('newversion');
 
-		const manifest = bumpVersion(meta, context);
+		const manifest = bumpVersion(meta, config, context);
 
+		expect(calculateVersion).toBeCalledWith(meta, config, context);
 		expect(context.logger.log).toBeCalledWith(
 			'%s manifest version changed (%s => %s) in %s',
 			'Expo',
-			'3.2.1',
-			'4.0.0',
-			'app.json',
+			meta.manifest.version,
+			'newversion',
+			meta.filename,
 		);
 
 		expect(manifest).toMatchObject({
 			name: 'test',
-			version: '4.0.0',
+			version: 'newversion',
 			anything: 'else',
 		});
 	});
