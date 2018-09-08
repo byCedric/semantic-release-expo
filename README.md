@@ -128,6 +128,7 @@ expo        | [`SemVer`][info-semver] | The semver-coerced Expo SDK version
 last        | [`SemVer`][info-semver] | The semver-coerced last release version
 next        | [`SemVer`][info-semver] | The semver coerced next release version
 code        | `Number`                | The (Android) version code, using the [versioning approach by Maxi Rosson][info-android-versioncode]
+increment   | `Number`                | An incremented number of the previous version, [discouraged because of non-deterministic behaviour][repo-issue-increments].
 recommended | `String` or `Number`    | _differs per versioning/platform, listed below_
 
 ##### Recommended per version type
@@ -161,6 +162,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [info-android-semver]: https://github.com/semver/semver/issues/309
 [info-android-versioncode]: https://medium.com/@maxirosson/versioning-android-apps-d6ec171cfd82
 [info-semver]: https://github.com/DefinitelyTyped/DefinitelyTyped/blob/257c8bc48a08620b77088af209ff3f4153221784/types/semver/index.d.ts#L152-L171
+[repo-issue-increments]: https://github.com/byCedric/semantic-release-expo/issues/4#issuecomment-417583573
 
 --- ---
 
