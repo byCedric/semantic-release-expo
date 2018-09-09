@@ -1,5 +1,5 @@
-import { Config, Context, VersionTemplates } from './types';
 import { MANIFEST_FILE } from './expo';
+import { Config, Context, VersionTemplates } from './types';
 
 /**
  * Get the manifest files that needs to be updated from the configuration.
@@ -21,9 +21,9 @@ export function getVersionTemplates(config?: Config): VersionTemplates {
 	const fallback = typeof template === 'string' ? template : '${recommended}';
 
 	return {
-		version: (typeof template === 'object' && template.version) ? template.version : fallback,
 		android: (typeof template === 'object' && template.android) ? template.android : fallback,
 		ios: (typeof template === 'object' && template.ios) ? template.ios : fallback,
+		version: (typeof template === 'object' && template.version) ? template.version : fallback,
 	};
 }
 
@@ -37,7 +37,7 @@ export function getPrepareConfig(context: Context): Config | undefined {
 			? context.options.prepare
 			: [context.options.prepare];
 
-		return plugins.find(config => config.path && config.path === 'semantic-release-expo');
+		return plugins.find((config) => config.path && config.path === 'semantic-release-expo');
 	}
 }
 
@@ -49,6 +49,6 @@ export function inheritPrepareConfig(config: Config, context: Context): Config {
 	const prepareConfig = getPrepareConfig(context) || {};
 
 	return {
-		manifests: config.manifests || prepareConfig.manifests
+		manifests: config.manifests || prepareConfig.manifests,
 	};
 }

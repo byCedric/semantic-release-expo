@@ -13,17 +13,17 @@ describe('scripts/prepare', () => {
 		const config = createConfig();
 		const context = createContext({
 			last: {
-				version: '0.2.0',
-				gitTag: 'v0.2.0',
 				gitHead: 'abc123',
+				gitTag: 'v0.2.0',
+				version: '0.2.0',
 			},
 			next: {
-				version: '0.2.1',
-				gitTag: 'v0.2.1',
 				gitHead: 'abc234',
+				gitTag: 'v0.2.1',
 				notes: 'Testing a new version',
+				version: '0.2.1',
 			},
-		})
+		});
 
 		const oldMeta = createManifestMeta({ name: 'test', version: '0.2.0' });
 		const newMeta = createManifestMeta({ name: 'test', version: '0.2.1' });

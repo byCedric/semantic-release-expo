@@ -5,6 +5,7 @@ jest.doMock('../../src/expo', () => ({ readManifests, MANIFEST_FILE: 'app.json' 
 import verifyConditions from '../../src/scripts/verify-conditions';
 import { createContext } from '../factory';
 
+// tslint:disable-next-line:no-var-requires
 const SemanticReleaseError = require('@semantic-release/error');
 
 describe('scripts/verify-conditions', () => {
@@ -18,14 +19,14 @@ describe('scripts/verify-conditions', () => {
 		};
 
 		const firstMeta = {
-			filename: 'app.json',
 			content: '{ "name": "test" }',
+			filename: 'app.json',
 			manifest: { name: 'test' },
 		};
 
 		const secondMeta = {
-			filename: 'app.staging.json',
 			content: '{ "name": "test-staging" }',
+			filename: 'app.staging.json',
 			manifest: { name: 'test-staging' },
 		};
 
@@ -72,14 +73,14 @@ describe('scripts/verify-conditions', () => {
 		];
 
 		const firstMeta = {
-			filename: 'app.production.json',
 			content: '{ "name": "test" }',
+			filename: 'app.production.json',
 			manifest: { name: 'test' },
 		};
 
 		const secondMeta = {
-			filename: 'app.staging.json',
 			content: '{ "name": "test-staging" }',
+			filename: 'app.staging.json',
 			manifest: { name: 'test-staging' },
 		};
 

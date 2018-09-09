@@ -9,17 +9,18 @@ jest.doMock('detect-indent', () => detectIndent);
 jest.doMock('detect-newline', () => detectNewline);
 
 import {
-	MANIFEST_FILE,
 	DEFAULT_INDENT,
 	DEFAULT_NEWLINE,
+	getAndroidPlatform,
+	getIosPlatform,
+	getPlatforms,
 	logManifestFromError,
+	MANIFEST_FILE,
 	readManifest,
 	readManifests,
 	writeManifest,
-	getPlatforms,
-	getAndroidPlatform,
-	getIosPlatform,
 } from '../src/expo';
+
 import { createContext } from './factory';
 
 describe('expo', () => {
@@ -90,8 +91,8 @@ describe('expo', () => {
 			}`;
 
 			const manifestMeta = {
-				filename: MANIFEST_FILE,
 				content: manifestString,
+				filename: MANIFEST_FILE,
 				manifest: JSON.parse(manifestString).expo,
 			};
 
@@ -114,14 +115,14 @@ describe('expo', () => {
 			}`;
 
 			const manifestMeta = {
-				filename: MANIFEST_FILE,
 				content: manifestString,
+				filename: MANIFEST_FILE,
 				manifest: JSON.parse(manifestString).expo,
 			};
 
 			const options = {
-				spaces: DEFAULT_INDENT,
 				EOL: DEFAULT_NEWLINE,
+				spaces: DEFAULT_INDENT,
 			};
 
 			detectIndent.mockReturnValue(undefined);
@@ -173,4 +174,4 @@ describe('expo', () => {
 			expect(getIosPlatform({ name: 'test', ios })).toMatchObject(ios);
 		});
 	});
-})
+});

@@ -5,31 +5,31 @@ jest.doMock('../../src/expo', () => ({ getAndroidPlatform }));
 jest.doMock('../../src/version', () => ({ calculateAndroidVersion }));
 
 import bumpPlatformAndroid from '../../src/version-bumpers/platform-android';
-import { createContext, createConfig, createManifestMeta } from '../factory';
+import { createConfig, createContext, createManifestMeta } from '../factory';
 
 describe('version-bumpers/platform-android', () => {
 	it('returns new manifest with bumped android version', () => {
 		const config = createConfig();
 		const context = createContext({
 			last: {
-				version: '1.2.0',
-				gitTag: 'v1.2.0',
 				gitHead: '12asd1',
+				gitTag: 'v1.2.0',
+				version: '1.2.0',
 			},
 			next: {
-				version: '1.3.0',
-				gitTag: 'v1.3.0',
 				gitHead: 'asd123',
+				gitTag: 'v1.3.0',
 				notes: 'New version',
+				version: '1.3.0',
 			},
 		});
 
 		const meta = createManifestMeta({
-			name: 'test',
-			version: '1.2.0',
-			sdkVersion: '29.0.0',
 			android: { versionCode: 290010200 },
 			ios: { buildNumber: '1.2.0' },
+			name: 'test',
+			sdkVersion: '29.0.0',
+			version: '1.2.0',
 		});
 
 		getAndroidPlatform.mockReturnValue(meta.manifest.android);
@@ -48,11 +48,11 @@ describe('version-bumpers/platform-android', () => {
 		);
 
 		expect(manifest).toMatchObject({
-			name: 'test',
-			version: '1.2.0',
-			sdkVersion: '29.0.0',
 			android: { versionCode: 290010300 },
 			ios: { buildNumber: '1.2.0' },
+			name: 'test',
+			sdkVersion: '29.0.0',
+			version: '1.2.0',
 		});
 	});
 });

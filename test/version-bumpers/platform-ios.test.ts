@@ -5,17 +5,17 @@ jest.doMock('../../src/expo', () => ({ getIosPlatform }));
 jest.doMock('../../src/version', () => ({ calculateIosVersion }));
 
 import bumpPlatformIos from '../../src/version-bumpers/platform-ios';
-import { createContext, createConfig, createManifestMeta } from '../factory';
+import { createConfig, createContext, createManifestMeta } from '../factory';
 
 describe('version-bumpers/platform-ios', () => {
 	it('returns new manifest with bumped ios version', () => {
 		const config = createConfig();
 		const context = createContext();
 		const meta = createManifestMeta({
-			name: 'test',
-			version: context.lastRelease!.version,
 			android: { versionCode: 6 },
 			ios: { buildNumber: context.lastRelease!.version },
+			name: 'test',
+			version: context.lastRelease!.version,
 		});
 
 		getIosPlatform.mockReturnValue(meta.manifest.ios);
@@ -34,10 +34,10 @@ describe('version-bumpers/platform-ios', () => {
 		);
 
 		expect(manifest).toMatchObject({
-			name: 'test',
-			version: context.lastRelease!.version,
 			android: { versionCode: 6 },
 			ios: { buildNumber: 'newversion' },
+			name: 'test',
+			version: context.lastRelease!.version,
 		});
 	});
 });

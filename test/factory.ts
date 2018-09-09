@@ -27,8 +27,8 @@ export function createContext(options: { next?: NextRelease, last?: LastRelease 
 export function createContextLogger() {
 	return {
 		logger: {
-			log: jest.fn(),
 			error: jest.fn(),
+			log: jest.fn(),
 		},
 	};
 }
@@ -52,10 +52,10 @@ export function createContextOptions() {
 export function createContextNextRelease(options?: NextRelease) {
 	return {
 		nextRelease: {
-			version: options ? options.version : '1.2.0',
-			gitTag: options ? options.version : 'v1.2.0',
 			gitHead: options ? options.gitHead : 'abc234',
+			gitTag: options ? options.version : 'v1.2.0',
 			notes: options ? options.notes : 'Testing notes',
+			version: options ? options.version : '1.2.0',
 		},
 	};
 }
@@ -66,9 +66,9 @@ export function createContextNextRelease(options?: NextRelease) {
 export function createContextLastRelease(options?: LastRelease) {
 	return {
 		lastRelease: {
-			version: options ? options.version : '1.1.3',
-			gitTag: options ? options.version : 'v1.1.3',
 			gitHead: options ? options.gitHead : 'abc123',
+			gitTag: options ? options.version : 'v1.1.3',
+			version: options ? options.version : '1.1.3',
 		},
 	};
 }
@@ -78,8 +78,8 @@ export function createContextLastRelease(options?: LastRelease) {
  */
 export function createManifestMeta(manifest: Manifest): ManifestMeta {
 	return {
-		filename: 'app.json',
 		content: JSON.stringify(manifest),
+		filename: 'app.json',
 		manifest,
 	};
 }

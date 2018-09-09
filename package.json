@@ -24,12 +24,11 @@
 	"main": "./build/src/index.js",
 	"types": "./build/src/index.d.ts",
 	"scripts": {
-		"lint": "commitlint --from 4709ac84e2bcd93e72ca1da7e3f4c7428cae3652",
+		"lint": "tslint '{src,test}/**/*.ts'",
 		"test": "jest --coverage",
 		"build": "tsc",
 		"commit": "git-cz"
 	},
-	"peerDependencies": {},
 	"dependencies": {
 		"@types/lodash.template": "^4.4.4",
 		"@types/semver": "^5.5.0",
@@ -59,6 +58,7 @@
 		"semantic-release": "^15.4.2",
 		"semantic-release-git-branches": "^1.1.0",
 		"ts-jest": "^23.1.2",
+		"tslint": "^5.11.0",
 		"typescript": "^2.8.3"
 	},
 	"jest": {
