@@ -1,10 +1,3 @@
-const commitTypes = require('commit-types-peakfijn');
-const releaseRules = [{ breaking: true, release: 'major' }].concat(
-	Object.keys(commitTypes)
-		.map(type => ({ type, release: commitTypes[type].release }))
-		.filter(rule => !!rule.release)
-);
-
 module.exports = {
 	branch: 'master',
 	repositoryUrl: 'https://github.com/bycedric/semantic-release-expo.git',
@@ -12,7 +5,7 @@ module.exports = {
 	analyzeCommits: {
 		path: '@semantic-release/commit-analyzer',
 		preset: 'peakfijn',
-		releaseRules,
+		releaseRules: 'release-rules-peakfijn',
 	},
 	generateNotes: [
 		{

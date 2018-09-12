@@ -39,8 +39,9 @@
 		"semver": "^5.5.1"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^7.0.0",
 		"@commitlint/travis-cli": "^7.0.0",
+		"@peakfijn/config-commitizen": "^0.8.0",
+		"@peakfijn/config-commitlint": "^0.8.0",
 		"@semantic-release/changelog": "^3.0.0",
 		"@semantic-release/error": "^2.2.0",
 		"@types/detect-indent": "^5.0.0",
@@ -49,12 +50,8 @@
 		"@types/jest": "^23.0.0",
 		"@types/node": "^10.1.2",
 		"codecov": "^3.0.2",
-		"commit-types-peakfijn": "^0.6.0",
-		"commitizen": "^2.10.1",
-		"commitlint-config-peakfijn": "^0.4.0",
-		"conventional-changelog-peakfijn": "^0.6.0",
-		"cz-changelog-peakfijn": "^0.6.0",
 		"jest": "^23.1.0",
+		"release-rules-peakfijn": "^0.8.0",
 		"semantic-release": "^15.4.2",
 		"semantic-release-git-branches": "^1.1.0",
 		"ts-jest": "^23.1.2",
@@ -79,7 +76,7 @@
 	},
 	"config": {
 		"commitizen": {
-			"path": "./node_modules/cz-changelog-peakfijn"
+			"path": "@peakfijn/config-commitizen"
 		}
 	},
 	"greenkeeper": {
