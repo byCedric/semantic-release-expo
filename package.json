@@ -50,6 +50,7 @@
 		"@types/jest": "^23.0.0",
 		"@types/node": "^10.1.2",
 		"codecov": "^3.0.2",
+		"conventional-changelog-peakfijn": "^0.8.0",
 		"jest": "^23.1.0",
 		"release-rules-peakfijn": "^0.8.0",
 		"semantic-release": "^15.4.2",
