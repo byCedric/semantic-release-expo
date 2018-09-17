@@ -1,3 +1,31 @@
+## [2.1.1](https://github.com/bycedric/semantic-release-expo/compare/2.1.0...2.1.1) (2018-09-17)
+
+
+### Bug fixes
+
+* force android version code to numeric value ([#43](https://github.com/bycedric/semantic-release-expo/issues/43)) ([0f7389d](https://github.com/bycedric/semantic-release-expo/commit/0f7389d))
+
+
+### Code refactors
+
+* upgrade to latest peakfijn conventions ([4b0fee3](https://github.com/bycedric/semantic-release-expo/commit/4b0fee3))
+
+
+### Documentation changes
+
+* add discussion and simple change templates ([8831ae6](https://github.com/bycedric/semantic-release-expo/commit/8831ae6))
+
+
+### Other chores
+
+* integrate tslint and fix all found issues ([#38](https://github.com/bycedric/semantic-release-expo/issues/38)) ([edb9129](https://github.com/bycedric/semantic-release-expo/commit/edb9129))
+* simplify the issue and pull request templates ([#37](https://github.com/bycedric/semantic-release-expo/issues/37)) ([0f460df](https://github.com/bycedric/semantic-release-expo/commit/0f460df))
+
+
+### Pipeline changes
+
+* add missing changelog package for releases ([#44](https://github.com/bycedric/semantic-release-expo/issues/44)) ([c169a87](https://github.com/bycedric/semantic-release-expo/commit/c169a87))
+
 # [2.1.0](https://github.com/bycedric/semantic-release-expo/compare/2.0.0...2.1.0) (2018-09-08)
 
 
