@@ -33,7 +33,7 @@ describe('version-bumpers/platform-android', () => {
 		});
 
 		getAndroidPlatform.mockReturnValue(meta.manifest.android);
-		calculateAndroidVersion.mockReturnValue(290010300);
+		calculateAndroidVersion.mockReturnValue('290010300');
 
 		const manifest = bumpPlatformAndroid(meta, config, context);
 
