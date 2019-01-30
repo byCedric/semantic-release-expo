@@ -1,4 +1,4 @@
-import _template from 'lodash.template';
+import { template as _template } from 'lodash';
 import { coerce, SemVer } from 'semver';
 import { getVersionTemplates } from './config';
 import { getAndroidPlatform, getIosPlatform, ManifestMeta } from './expo';
