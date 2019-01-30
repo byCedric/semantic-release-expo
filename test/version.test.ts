@@ -3,7 +3,7 @@ const getVersionTemplates = jest.fn();
 const getAndroidPlatform = jest.fn();
 const getIosPlatform = jest.fn();
 
-jest.doMock('lodash.template', () => lodashTemplate);
+jest.doMock('lodash', () => ({ template: lodashTemplate }));
 jest.doMock('../src/config', () => ({ getVersionTemplates }));
 jest.doMock('../src/expo', () => ({ getAndroidPlatform, getIosPlatform }));
 
