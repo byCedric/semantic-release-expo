@@ -80,6 +80,11 @@
 			"path": "@peakfijn/config-commitizen"
 		}
 	},
+	"commitlint": {
+		"extends": [
+			"@peakfijn/config-commitlint"
+		]
+	},
 	"greenkeeper": {
 		"commitMessages": {
 			"initialBadge": "documentation: add greenkeeper badge",
