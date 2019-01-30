@@ -81,8 +81,7 @@
 		]
 	},
 	"release": {
-		"extends": "@peakfijn/config-release",
-		"branch": "develop"
+		"extends": "@peakfijn/config-release"
 	},
 	"greenkeeper": {
 		"commitMessages": {
