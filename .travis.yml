@@ -12,7 +12,7 @@ install:
 script:
   - npx commitlint-travis
   - npm audit
-  - npm test
+  - npm test -- --coverage
   - npm run build
 after_success:
   - npx codecov
