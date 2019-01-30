@@ -16,7 +16,7 @@
 	"homepage": "https://github.com/bycedric/semantic-release-expo#readme",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/bycedric/semantic-release-expo.git"
+		"url": "https://github.com/bycedric/semantic-release-expo.git"
 	},
 	"bugs": {
 		"url": "https://github.com/bycedric/semantic-release-expo/issues"
@@ -42,19 +42,14 @@
 		"@commitlint/travis-cli": "^7.0.0",
 		"@peakfijn/config-commitizen": "^1.0.0-rc.2",
 		"@peakfijn/config-commitlint": "^1.0.0-rc.2",
-		"@semantic-release/changelog": "^3.0.0",
-		"@semantic-release/error": "^2.2.0",
+		"@peakfijn/config-release": "^1.0.0-rc.2",
 		"@types/detect-indent": "^5.0.0",
 		"@types/detect-newline": "^2.1.0",
 		"@types/fs-extra": "^5.0.4",
 		"@types/jest": "^23.0.0",
 		"@types/node": "^10.1.2",
 		"codecov": "^3.0.2",
-		"conventional-changelog-peakfijn": "^1.0.0-rc.2",
 		"jest": "^23.1.0",
-		"release-rules-peakfijn": "^1.0.0-rc.2",
-		"semantic-release": "^15.4.2",
-		"semantic-release-git-branches": "^1.1.0",
 		"ts-jest": "^23.1.2",
 		"tslint": "^5.11.0",
 		"typescript": "^2.8.3"
@@ -84,6 +79,10 @@
 		"extends": [
 			"@peakfijn/config-commitlint"
 		]
+	},
+	"release": {
+		"extends": "@peakfijn/config-release",
+		"branch": "develop"
 	},
 	"greenkeeper": {
 		"commitMessages": {
