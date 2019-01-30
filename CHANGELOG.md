@@ -1,3 +1,30 @@
+## [2.1.2](https://github.com/bycedric/semantic-release-expo/compare/2.1.1...2.1.2) (2019-01-30)
+
+
+### Bug fixes
+
+* manually override allowed semantic release branch ([f94b4a1](https://github.com/bycedric/semantic-release-expo/commit/f94b4a1))
+* missing commitlint configuration ([bb72167](https://github.com/bycedric/semantic-release-expo/commit/bb72167))
+
+
+### Code refactors
+
+* allow tests to run in watch mode ([d894470](https://github.com/bycedric/semantic-release-expo/commit/d894470))
+* replace custom semantic release with convention package ([a4a1d47](https://github.com/bycedric/semantic-release-expo/commit/a4a1d47))
+* update pipeline with audit for security notifications ([54ef137](https://github.com/bycedric/semantic-release-expo/commit/54ef137))
+* upgrade typescript to 3.2.4 ([33ec439](https://github.com/bycedric/semantic-release-expo/commit/33ec439))
+* use full lodash with tree-shaked import ([65e3114](https://github.com/bycedric/semantic-release-expo/commit/65e3114))
+
+
+### Other chores
+
+* upgrade peakfijn conventions packages ([86e2fd9](https://github.com/bycedric/semantic-release-expo/commit/86e2fd9))
+
+
+### Pipeline changes
+
+* audit dependencies before using them ([982699f](https://github.com/bycedric/semantic-release-expo/commit/982699f))
+
 ## [2.1.1](https://github.com/bycedric/semantic-release-expo/compare/2.1.0...2.1.1) (2018-09-17)
 
 
