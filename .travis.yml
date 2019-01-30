@@ -1,17 +1,17 @@
 ---
 language: node_js
 node_js:
-  - node
-  - lts/*
+  - 11
+  - 10
+  - 8
 cache:
   directories:
-    - $HOME/.npm
-before_install:
-  - npm install -g npm@latest
+    - ~/.npm
 install:
   - npm install
 script:
-  - commitlint-travis
+  - npx commitlint-travis
+  - npm audit
   - npm test
   - npm run build
 after_success:
@@ -23,4 +23,4 @@ deploy:
     - npx semantic-release
   on:
     branch: master
-    node: lts/*
+    node: 10
