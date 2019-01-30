@@ -9,9 +9,9 @@ cache:
     - ~/.npm
 install:
   - npm install
+  - npm audit
 script:
   - npx commitlint-travis
-  - npm audit
   - npm test -- --coverage
   - npm run build
 after_success:
