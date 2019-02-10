@@ -17,10 +17,16 @@ script:
 after_success:
   - npx codecov
 deploy:
-  provider: script
-  skip_cleanup: true
-  script:
-    - npx semantic-release --branch master
-  on:
-    branch: master
-    node: 10
+  - provider: script
+    skip_cleanup: true
+    script: npx semantic-release --dry-run --branch develop
+    on:
+      node: 10
+      branch: develop
+  - provider: script
+    skip_cleanup: true
+    script:
+      - npx semantic-release --branch master
+    on:
+      branch: master
+      node: 10
