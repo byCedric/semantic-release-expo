@@ -136,7 +136,7 @@ recommended | `String` or `Number`    | _differs per versioning/platform, listed
 version                                     | example     | description
 ---                                         | ---         | ---
 [version][expo-version]                     | `1.2.3`     | The "raw" next release version (also available in `${next.raw}`)
-[Android versionCode][expo-version-android] | `290010203` | The[versioning approach by Maxi Rosson][info-android-versioncode] (same as `${code}`)
+[Android versionCode][expo-version-android] | `290010203` | The [versioning approach by Maxi Rosson][info-android-versioncode] (same as `${code}`)
 [iOS buildNumber][expo-version-ios]         | `1.2.3`     | The "raw" next release version (also available in `${next.raw}`)
 
 > In these examples Expo SDK `29.x.x` and SemVer `1.2.3` is used.
