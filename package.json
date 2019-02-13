@@ -30,7 +30,7 @@
 		"commit": "git-cz"
 	},
 	"dependencies": {
-		"@types/lodash": "^4.14.120",
+		"@types/lodash": "^4.14.121",
 		"@types/semver": "^5.5.0",
 		"detect-indent": "^5.0.0",
 		"detect-newline": "^2.1.0",
