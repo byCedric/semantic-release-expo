@@ -40,9 +40,9 @@
 	},
 	"devDependencies": {
 		"@commitlint/travis-cli": "^7.5.2",
-		"@peakfijn/config-commitizen": "^1.0.0-rc.2",
-		"@peakfijn/config-commitlint": "^1.0.0-rc.2",
-		"@peakfijn/config-release": "^1.0.0-rc.2",
+		"@peakfijn/config-commitizen": "^1.0.0-rc.3",
+		"@peakfijn/config-commitlint": "^1.0.0-rc.3",
+		"@peakfijn/config-release": "^1.0.0-rc.3",
 		"@types/detect-indent": "^5.0.0",
 		"@types/detect-newline": "^2.1.0",
 		"@types/fs-extra": "^5.0.4",
