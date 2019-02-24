@@ -1,3 +1,34 @@
+## [2.1.3](https://github.com/bycedric/semantic-release-expo/compare/2.1.2...2.1.3) (2019-02-24)
+
+
+### Code refactors
+
+* upgrade [@commitlint](https://github.com/commitlint)/travis-cli to version 7.5.1 ([#52](https://github.com/bycedric/semantic-release-expo/issues/52)) ([7b96eab](https://github.com/bycedric/semantic-release-expo/commit/7b96eab))
+* upgrade [@commitlint](https://github.com/commitlint)/travis-cli to version 7.5.2 ([#57](https://github.com/bycedric/semantic-release-expo/issues/57)) ([93af488](https://github.com/bycedric/semantic-release-expo/commit/93af488))
+* upgrade [@types](https://github.com/types)/fs-extra to version 5.0.5 ([#65](https://github.com/bycedric/semantic-release-expo/issues/65)) ([0b0a088](https://github.com/bycedric/semantic-release-expo/commit/0b0a088))
+* upgrade [@types](https://github.com/types)/jest to version 24.0.6 ([#68](https://github.com/bycedric/semantic-release-expo/issues/68)) ([f77dcc5](https://github.com/bycedric/semantic-release-expo/commit/f77dcc5)), closes [#48](https://github.com/bycedric/semantic-release-expo/issues/48)
+* upgrade [@types](https://github.com/types)/lodash to version 4.14.121 ([#67](https://github.com/bycedric/semantic-release-expo/issues/67)) ([c0ff384](https://github.com/bycedric/semantic-release-expo/commit/c0ff384))
+* upgrade [@types](https://github.com/types)/node to version 10.12.22 ([#51](https://github.com/bycedric/semantic-release-expo/issues/51)) ([57c4a4f](https://github.com/bycedric/semantic-release-expo/commit/57c4a4f))
+* upgrade [@types](https://github.com/types)/node to version 11.9.5 ([#66](https://github.com/bycedric/semantic-release-expo/issues/66)) ([fa5d037](https://github.com/bycedric/semantic-release-expo/commit/fa5d037)), closes [#58](https://github.com/bycedric/semantic-release-expo/issues/58)
+* upgrade codecov to version 3.2.0 ([#64](https://github.com/bycedric/semantic-release-expo/issues/64)) ([e644b47](https://github.com/bycedric/semantic-release-expo/commit/e644b47))
+* upgrade ts-jest to version 24.0.0 ([#62](https://github.com/bycedric/semantic-release-expo/issues/62)) ([89844f0](https://github.com/bycedric/semantic-release-expo/commit/89844f0))
+
+
+### Documentation changes
+
+* add missing whitespace ([#53](https://github.com/bycedric/semantic-release-expo/issues/53)) ([50e1f91](https://github.com/bycedric/semantic-release-expo/commit/50e1f91))
+
+
+### Other chores
+
+* update all dependencies and manually fix audit warning ([#63](https://github.com/bycedric/semantic-release-expo/issues/63)) ([408f539](https://github.com/bycedric/semantic-release-expo/commit/408f539))
+
+
+### Pipeline changes
+
+* add dry run of new release on develop ([#55](https://github.com/bycedric/semantic-release-expo/issues/55)) ([220cd31](https://github.com/bycedric/semantic-release-expo/commit/220cd31))
+* audit before downloading dependencies with npm ci ([#54](https://github.com/bycedric/semantic-release-expo/issues/54)) ([f33f7d4](https://github.com/bycedric/semantic-release-expo/commit/f33f7d4))
+
 ## [2.1.2](https://github.com/bycedric/semantic-release-expo/compare/2.1.1...2.1.2) (2019-01-30)
 
 

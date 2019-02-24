@@ -1,6 +1,6 @@
 {
 	"name": "semantic-release-expo",
-	"version": "2.1.2",
+	"version": "2.1.3",
 	"description": "An Expo implementation for semantic release, so you don't have to bother",
 	"keywords": [
 		"expo",
