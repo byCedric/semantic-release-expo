@@ -36,7 +36,7 @@
 		"detect-newline": "^2.1.0",
 		"fs-extra": "^7.0.1",
 		"lodash": "^4.17.11",
-		"semver": "^5.6.0"
+		"semver": "^6.0.0"
 	},
 	"devDependencies": {
 		"@commitlint/travis-cli": "^7.5.2",
