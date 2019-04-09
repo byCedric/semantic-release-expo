@@ -1,3 +1,24 @@
+## [2.1.4](https://github.com/bycedric/semantic-release-expo/compare/2.1.3...2.1.4) (2019-04-09)
+
+
+### Bug fixes
+
+* security vulnerability in js-yaml ([799f154](https://github.com/bycedric/semantic-release-expo/commit/799f154))
+
+
+### Code refactors
+
+* upgrade [@types](https://github.com/types)/jest to version 24.0.10 ([#79](https://github.com/bycedric/semantic-release-expo/issues/79)) ([32af0d3](https://github.com/bycedric/semantic-release-expo/commit/32af0d3))
+* upgrade [@types](https://github.com/types)/node to version 11.10.5 ([#77](https://github.com/bycedric/semantic-release-expo/issues/77)) ([4cfad69](https://github.com/bycedric/semantic-release-expo/commit/4cfad69))
+* upgrade [@types](https://github.com/types)/semver to version 6.0.0 ([d791a4e](https://github.com/bycedric/semantic-release-expo/commit/d791a4e))
+* upgrade semver to version 6.0.0 ([#75](https://github.com/bycedric/semantic-release-expo/issues/75)) ([5d6f706](https://github.com/bycedric/semantic-release-expo/commit/5d6f706))
+* upgrade ts-jest to version 24.0.1 ([#78](https://github.com/bycedric/semantic-release-expo/issues/78)) ([4671afb](https://github.com/bycedric/semantic-release-expo/commit/4671afb))
+
+
+### Pipeline changes
+
+* allow greenkeeper package lock commits ([f92edcb](https://github.com/bycedric/semantic-release-expo/commit/f92edcb))
+
 ## [2.1.3](https://github.com/bycedric/semantic-release-expo/compare/2.1.2...2.1.3) (2019-02-24)
 
 
