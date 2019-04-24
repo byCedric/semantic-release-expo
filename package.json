@@ -33,7 +33,7 @@
 		"@types/lodash": "^4.14.121",
 		"@types/semver": "^6.0.0",
 		"detect-indent": "^5.0.0",
-		"detect-newline": "^2.1.0",
+		"detect-newline": "^3.0.0",
 		"fs-extra": "^7.0.1",
 		"lodash": "^4.17.11",
 		"semver": "^6.0.0"
