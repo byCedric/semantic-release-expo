@@ -30,7 +30,7 @@
 		"commit": "git-cz"
 	},
 	"dependencies": {
-		"@types/lodash": "^4.14.121",
+		"@types/lodash": "^4.14.123",
 		"@types/semver": "^6.0.0",
 		"detect-indent": "^5.0.0",
 		"detect-newline": "^3.0.0",
@@ -40,19 +40,18 @@
 	},
 	"devDependencies": {
 		"@commitlint/travis-cli": "^7.5.2",
-		"@peakfijn/config-commitizen": "^1.0.0-rc.3",
-		"@peakfijn/config-commitlint": "^1.0.0-rc.3",
-		"@peakfijn/config-release": "^1.0.0-rc.3",
+		"@peakfijn/config-commitizen": "^1.0.1",
+		"@peakfijn/config-commitlint": "^1.0.1",
+		"@peakfijn/config-release": "^1.0.1",
 		"@types/detect-indent": "^5.0.0",
-		"@types/detect-newline": "^2.1.0",
 		"@types/fs-extra": "^5.0.5",
-		"@types/jest": "^24.0.10",
-		"@types/node": "^11.10.5",
-		"codecov": "^3.2.0",
-		"jest": "^24.0.0",
-		"ts-jest": "^24.0.1",
-		"tslint": "^5.12.1",
-		"typescript": "^3.2.4"
+		"@types/jest": "^24.0.11",
+		"@types/node": "^11.13.7",
+		"codecov": "^3.3.0",
+		"jest": "^24.7.1",
+		"ts-jest": "^24.0.2",
+		"tslint": "^5.16.0",
+		"typescript": "^3.4.5"
 	},
 	"jest": {
 		"collectCoverageFrom": [
