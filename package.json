@@ -104,6 +104,14 @@
 			"devDependencyUpdate": "refactor: upgrade ${dependency} to version ${version}",
 			"dependencyPin": "fix: freeze ${dependency} to ${oldVersion}",
 			"devDependencyPin": "fix: freeze ${dependency} to ${oldVersion}"
+		},
+		"prTitles": {
+			"initialPR": "refactor: upgrade all dependencies to enable greenkeeper",
+			"initialPrBadge": "documentation: add greenkeeper badge",
+			"initialPrBadgeOnly": "documentation: add greenkeeper badge",
+			"initialSubgroupPR": "refactor(${group}): upgrade ${dependency} to version ${version}",
+			"basicPR": "refactor: upgrade ${dependency} to version ${version}",
+			"groupPR": "refactor(${group}): upgrade ${dependency} to version ${version}"
 		}
 	}
 }
