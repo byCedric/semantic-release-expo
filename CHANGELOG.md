@@ -1,3 +1,23 @@
+## [2.1.5](https://github.com/bycedric/semantic-release-expo/compare/2.1.4...2.1.5) (2019-04-25)
+
+
+### Code refactors
+
+* upgrade all dependencies to the latest versions ([#91](https://github.com/bycedric/semantic-release-expo/issues/91)) ([72a17ae](https://github.com/bycedric/semantic-release-expo/commit/72a17ae))
+* upgrade detect-newline to version 3.0.0 ([#83](https://github.com/bycedric/semantic-release-expo/issues/83)) ([0eee460](https://github.com/bycedric/semantic-release-expo/commit/0eee460))
+
+
+### Other chores
+
+* configure pull request titles for greenkeeper ([#90](https://github.com/bycedric/semantic-release-expo/issues/90)) ([7682b5b](https://github.com/bycedric/semantic-release-expo/commit/7682b5b))
+
+
+### Pipeline changes
+
+* add node 12 to testing languages ([#87](https://github.com/bycedric/semantic-release-expo/issues/87)) ([4fd6f3c](https://github.com/bycedric/semantic-release-expo/commit/4fd6f3c))
+* remove soon-to-be outdated node 11 in favor of 12 ([#89](https://github.com/bycedric/semantic-release-expo/issues/89)) ([97e86cb](https://github.com/bycedric/semantic-release-expo/commit/97e86cb))
+* temporary disable audit-block awaiting tar/node-gyp fix ([#86](https://github.com/bycedric/semantic-release-expo/issues/86)) ([9114a27](https://github.com/bycedric/semantic-release-expo/commit/9114a27))
+
 ## [2.1.4](https://github.com/bycedric/semantic-release-expo/compare/2.1.3...2.1.4) (2019-04-09)
 
 
