@@ -12,6 +12,7 @@ install:
   - npm ci
 script:
   - npx commitlint-travis
+  - npm run lint
   - npm test -- --coverage
   - npm run build
 after_success:
