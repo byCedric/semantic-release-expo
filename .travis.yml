@@ -2,7 +2,6 @@
 language: node_js
 node_js:
   - 12
-  - 11
   - 10
   - 8
 cache:
@@ -13,6 +12,7 @@ install:
   - npm ci
 script:
   - npx commitlint-travis
+  - npm run lint
   - npm test -- --coverage
   - npm run build
 after_success:
