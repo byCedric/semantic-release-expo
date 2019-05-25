@@ -86,7 +86,8 @@
 				2,
 				"always",
 				[
-					"package"
+					"deps",
+					"deps-dev"
 				]
 			]
 		}
