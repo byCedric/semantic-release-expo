@@ -1,3 +1,22 @@
+## [2.1.6](https://github.com/bycedric/semantic-release-expo/compare/2.1.5...2.1.6) (2019-05-26)
+
+
+### Code refactors
+
+* upgrade detect-indent to version 6.0.0 ([#92](https://github.com/bycedric/semantic-release-expo/issues/92)) ([0a3f8a0](https://github.com/bycedric/semantic-release-expo/commit/0a3f8a0))
+* upgrade fs-extra to version 8.0.0 ([#94](https://github.com/bycedric/semantic-release-expo/issues/94)) ([0d4460e](https://github.com/bycedric/semantic-release-expo/commit/0d4460e))
+* use dependabot instead of greenkeeper ([#102](https://github.com/bycedric/semantic-release-expo/issues/102)) ([c03251a](https://github.com/bycedric/semantic-release-expo/commit/c03251a))
+
+
+### Other chores
+
+* **deps:** [security] bump tar from 2.2.1 to 2.2.2 ([#97](https://github.com/bycedric/semantic-release-expo/issues/97)) ([d901b06](https://github.com/bycedric/semantic-release-expo/commit/d901b06))
+* **deps:** bump fs-extra from 8.0.0 to 8.0.1 ([#100](https://github.com/bycedric/semantic-release-expo/issues/100)) ([f3dfc16](https://github.com/bycedric/semantic-release-expo/commit/f3dfc16))
+* **deps:** bump semver from 6.0.0 to 6.1.0 ([#101](https://github.com/bycedric/semantic-release-expo/issues/101)) ([eaf4348](https://github.com/bycedric/semantic-release-expo/commit/eaf4348))
+* **deps-dev:** bump [@commitlint](https://github.com/commitlint)/travis-cli from 7.5.2 to 7.6.1 ([#96](https://github.com/bycedric/semantic-release-expo/issues/96)) ([b6a0f91](https://github.com/bycedric/semantic-release-expo/commit/b6a0f91))
+* **deps-dev:** bump [@types](https://github.com/types)/fs-extra from 5.0.5 to 7.0.0 ([#98](https://github.com/bycedric/semantic-release-expo/issues/98)) ([baf56a9](https://github.com/bycedric/semantic-release-expo/commit/baf56a9))
+* **deps-dev:** bump [@types](https://github.com/types)/node from 11.13.7 to 12.0.2 ([#99](https://github.com/bycedric/semantic-release-expo/issues/99)) ([909098e](https://github.com/bycedric/semantic-release-expo/commit/909098e))
+
 ## [2.1.5](https://github.com/bycedric/semantic-release-expo/compare/2.1.4...2.1.5) (2019-04-25)
 
 
