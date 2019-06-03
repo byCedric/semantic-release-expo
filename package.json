@@ -39,7 +39,7 @@
 		"semver": "^6.0.0"
 	},
 	"devDependencies": {
-		"@commitlint/travis-cli": "^7.5.2",
+		"@commitlint/travis-cli": "^8.0.0",
 		"@peakfijn/config-commitizen": "^1.0.1",
 		"@peakfijn/config-commitlint": "^1.0.1",
 		"@peakfijn/config-release": "^1.0.1",
