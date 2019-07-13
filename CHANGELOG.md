@@ -1,3 +1,35 @@
+# [2.2.0](https://github.com/bycedric/semantic-release-expo/compare/2.1.6...2.2.0) (2019-07-13)
+
+
+### Code refactors
+
+* lower the dependabot pr intensity ([#122](https://github.com/bycedric/semantic-release-expo/issues/122)) ([e157739](https://github.com/bycedric/semantic-release-expo/commit/e157739))
+* move types dependencies to dev dependencies ([#134](https://github.com/bycedric/semantic-release-expo/issues/134)) ([9dae0e7](https://github.com/bycedric/semantic-release-expo/commit/9dae0e7))
+* update dependencies and fix all audit issues ([#133](https://github.com/bycedric/semantic-release-expo/issues/133)) ([64ca7fd](https://github.com/bycedric/semantic-release-expo/commit/64ca7fd))
+
+
+### New features
+
+* replace tslint with eslint for improved linting ([#138](https://github.com/bycedric/semantic-release-expo/issues/138)) ([fafa74a](https://github.com/bycedric/semantic-release-expo/commit/fafa74a))
+
+
+### Other chores
+
+* **deps:** [security] bump lodash from 4.17.11 to 4.17.13 ([#131](https://github.com/bycedric/semantic-release-expo/issues/131)) ([700f001](https://github.com/bycedric/semantic-release-expo/commit/700f001))
+* **deps:** [security] bump lodash.template from 4.4.0 to 4.5.0 ([#130](https://github.com/bycedric/semantic-release-expo/issues/130)) ([618462a](https://github.com/bycedric/semantic-release-expo/commit/618462a))
+* **deps:** bump [@types](https://github.com/types)/lodash from 4.14.123 to 4.14.134 ([#117](https://github.com/bycedric/semantic-release-expo/issues/117)) ([aac87f6](https://github.com/bycedric/semantic-release-expo/commit/aac87f6))
+* **deps-dev:** bump [@commitlint](https://github.com/commitlint)/travis-cli from 7.6.1 to 8.0.0 ([#114](https://github.com/bycedric/semantic-release-expo/issues/114)) ([43df270](https://github.com/bycedric/semantic-release-expo/commit/43df270))
+* **deps-dev:** bump [@types](https://github.com/types)/jest from 24.0.11 to 24.0.15 ([#121](https://github.com/bycedric/semantic-release-expo/issues/121)) ([781fcd3](https://github.com/bycedric/semantic-release-expo/commit/781fcd3))
+* **deps-dev:** bump [@types](https://github.com/types)/node from 12.0.2 to 12.0.8 ([#118](https://github.com/bycedric/semantic-release-expo/issues/118)) ([240d967](https://github.com/bycedric/semantic-release-expo/commit/240d967))
+* **deps-dev:** bump codecov from 3.3.0 to 3.5.0 ([#107](https://github.com/bycedric/semantic-release-expo/issues/107)) ([37f156d](https://github.com/bycedric/semantic-release-expo/commit/37f156d))
+* **deps-dev:** bump tslint from 5.16.0 to 5.17.0 ([#113](https://github.com/bycedric/semantic-release-expo/issues/113)) ([f4d7a2c](https://github.com/bycedric/semantic-release-expo/commit/f4d7a2c))
+* **deps-dev:** bump typescript from 3.4.5 to 3.5.2 ([#119](https://github.com/bycedric/semantic-release-expo/issues/119)) ([2b6bccf](https://github.com/bycedric/semantic-release-expo/commit/2b6bccf))
+
+
+### Pipeline changes
+
+* remove audit step to ease up on travis ([#132](https://github.com/bycedric/semantic-release-expo/issues/132)) ([4c1e74f](https://github.com/bycedric/semantic-release-expo/commit/4c1e74f))
+
 ## [2.1.6](https://github.com/bycedric/semantic-release-expo/compare/2.1.5...2.1.6) (2019-05-26)
 
 
