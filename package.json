@@ -32,9 +32,9 @@
 	"dependencies": {
 		"detect-indent": "^6.0.0",
 		"detect-newline": "^3.0.0",
-		"fs-extra": "^8.0.0",
-		"lodash": "^4.17.11",
-		"semver": "^6.0.0"
+		"fs-extra": "^8.1.0",
+		"lodash": "^4.17.14",
+		"semver": "^6.2.0"
 	},
 	"devDependencies": {
 		"@commitlint/travis-cli": "^8.0.0",
@@ -42,16 +42,16 @@
 		"@peakfijn/config-commitlint": "^1.0.1",
 		"@peakfijn/config-release": "^1.0.1",
 		"@types/detect-indent": "^5.0.0",
-		"@types/fs-extra": "^7.0.0",
+		"@types/fs-extra": "^8.0.0",
 		"@types/jest": "^24.0.11",
-		"@types/lodash": "^4.14.123",
-		"@types/node": "^12.0.2",
-		"@types/semver": "^6.0.0",
+		"@types/lodash": "^4.14.136",
+		"@types/node": "^12.6.2",
+		"@types/semver": "^6.0.1",
 		"codecov": "^3.3.0",
-		"jest": "^24.7.1",
+		"jest": "^24.8.0",
 		"ts-jest": "^24.0.2",
-		"tslint": "^5.16.0",
-		"typescript": "^3.4.5"
+		"tslint": "^5.18.0",
+		"typescript": "^3.5.3"
 	},
 	"jest": {
 		"collectCoverageFrom": [
