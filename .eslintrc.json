@@ -1,0 +1,19 @@
+{
+	"parser": "@typescript-eslint/parser",
+	"plugins": [
+		"@typescript-eslint"
+	],
+	"env": {
+		"node": true
+	},
+	"extends": [
+		"plugin:@typescript-eslint/recommended"
+	],
+	"rules": {
+		"@typescript-eslint/explicit-function-return-type": "off",
+		"@typescript-eslint/indent": ["error", "tab"],
+		"@typescript-eslint/no-explicit-any": "off",
+		"@typescript-eslint/no-non-null-assertion": "off",
+		"@typescript-eslint/no-var-requires": "off"
+	}
+}

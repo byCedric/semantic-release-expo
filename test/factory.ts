@@ -10,18 +10,6 @@ export function createConfig(): Config {
 }
 
 /**
- * Create a (full) context object with logger, options and last/next releases.
- */
-export function createContext(options: { next?: NextRelease, last?: LastRelease } = {}): Context {
-	return {
-		...createContextLogger(),
-		...createContextOptions(),
-		...createContextNextRelease(options.next),
-		...createContextLastRelease(options.last),
-	};
-}
-
-/**
  * Create a context partial with a mocked logger.
  */
 export function createContextLogger() {
@@ -81,5 +69,17 @@ export function createManifestMeta(manifest: Manifest): ManifestMeta {
 		content: JSON.stringify(manifest),
 		filename: 'app.json',
 		manifest,
+	};
+}
+
+/**
+ * Create a (full) context object with logger, options and last/next releases.
+ */
+export function createContext(options: { next?: NextRelease; last?: LastRelease } = {}): Context {
+	return {
+		...createContextLogger(),
+		...createContextOptions(),
+		...createContextNextRelease(options.next),
+		...createContextLastRelease(options.last),
 	};
 }

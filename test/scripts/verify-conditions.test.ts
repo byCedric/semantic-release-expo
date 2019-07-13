@@ -5,9 +5,6 @@ jest.doMock('../../src/expo', () => ({ readManifests, MANIFEST_FILE: 'app.json' 
 import verifyConditions from '../../src/scripts/verify-conditions';
 import { createContext } from '../factory';
 
-// tslint:disable-next-line:no-var-requires
-const SemanticReleaseError = require('@semantic-release/error');
-
 describe('scripts/verify-conditions', () => {
 	it('reads manifest and logs name', async () => {
 		const context = createContext();

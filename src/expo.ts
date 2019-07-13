@@ -1,6 +1,6 @@
 import detectIndent from 'detect-indent';
 import detectNewline from 'detect-newline';
-import { readFile, readJson, writeJson } from 'fs-extra';
+import { readFile, writeJson } from 'fs-extra';
 import { Context } from './types';
 
 /**
