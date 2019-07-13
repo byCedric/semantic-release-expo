@@ -42,7 +42,7 @@
 		"@peakfijn/config-commitlint": "^1.0.1",
 		"@peakfijn/config-release": "^1.0.1",
 		"@types/detect-indent": "^5.0.0",
-		"@types/fs-extra": "^7.0.0",
+		"@types/fs-extra": "^8.0.0",
 		"@types/jest": "^24.0.11",
 		"@types/lodash": "^4.14.123",
 		"@types/node": "^12.0.2",
