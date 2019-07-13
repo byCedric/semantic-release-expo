@@ -8,6 +8,7 @@ cache:
   directories:
     - ~/.npm
 install:
+  - npm audit
   - npm ci
 script:
   - npx commitlint-travis
