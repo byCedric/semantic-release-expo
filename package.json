@@ -23,6 +23,9 @@
 	},
 	"main": "./build/src/index.js",
 	"types": "./build/src/index.d.ts",
+	"files": [
+		"build/src"
+	],
 	"scripts": {
 		"lint": "tsc --noEmit && eslint src test --ext js,ts",
 		"test": "jest",
