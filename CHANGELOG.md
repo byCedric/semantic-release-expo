@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/bycedric/semantic-release-expo/compare/2.2.0...2.2.1) (2019-07-13)
+
+
+### Bug fixes
+
+* only add built source files to packed tarball ([#139](https://github.com/bycedric/semantic-release-expo/issues/139)) ([5a71fe2](https://github.com/bycedric/semantic-release-expo/commit/5a71fe2))
+
 # [2.2.0](https://github.com/bycedric/semantic-release-expo/compare/2.1.6...2.2.0) (2019-07-13)
 
 
