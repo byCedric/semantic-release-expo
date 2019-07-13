@@ -1,4 +1,3 @@
-import { SemVer } from 'semver';
 import { Manifest, ManifestMeta } from './expo';
 
 /**
@@ -52,8 +51,8 @@ export interface Context {
 	nextRelease?: NextRelease;
 	/** The shared logger instance of semantic release. */
 	logger: {
-		log: (message: string, ...vars: any[]) => void,
-		error: (message: string, ...vars: any[]) => void,
+		log: (message: string, ...vars: any[]) => void;
+		error: (message: string, ...vars: any[]) => void;
 	};
 }
 
