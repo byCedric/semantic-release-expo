@@ -1,3 +1,10 @@
+## [2.2.2](https://github.com/bycedric/semantic-release-expo/compare/2.2.1...2.2.2) (2019-07-27)
+
+
+### Code refactors
+
+* update dependencies and node lts for releases ([#140](https://github.com/bycedric/semantic-release-expo/issues/140)) ([ba6a878](https://github.com/bycedric/semantic-release-expo/commit/ba6a878))
+
 ## [2.2.1](https://github.com/bycedric/semantic-release-expo/compare/2.2.0...2.2.1) (2019-07-13)
 
 
