@@ -2,7 +2,6 @@ import { getManifestFiles, inheritPrepareConfig } from '../config';
 import { logManifestFromError, readManifests } from '../expo';
 import { SemanticMethod } from '../types';
 
-// tslint:disable-next-line:no-var-requires
 const SemanticReleaseError = require('@semantic-release/error');
 
 /**
