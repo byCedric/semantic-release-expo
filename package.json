@@ -4,7 +4,6 @@
 	"description": "An Expo implementation for semantic release, so you don't have to bother",
 	"keywords": [
 		"expo",
-		"exponential",
 		"react",
 		"native",
 		"semantic",
@@ -29,31 +28,31 @@
 	"scripts": {
 		"lint": "tsc --noEmit && eslint src test --ext js,ts",
 		"test": "jest",
-		"build": "tsc",
+		"build": "tsc --build",
 		"commit": "git-cz"
 	},
 	"dependencies": {
 		"detect-indent": "^6.0.0",
 		"detect-newline": "^3.0.0",
 		"fs-extra": "^8.1.0",
-		"lodash": "^4.17.14",
-		"semver": "^6.2.0"
+		"lodash": "^4.17.15",
+		"semver": "^6.3.0"
 	},
 	"devDependencies": {
-		"@commitlint/travis-cli": "^8.0.0",
-		"@peakfijn/config-commitizen": "^1.0.1",
-		"@peakfijn/config-commitlint": "^1.0.1",
-		"@peakfijn/config-release": "^1.0.1",
+		"@commitlint/travis-cli": "^8.1.0",
+		"@peakfijn/config-commitizen": "^2.1.0",
+		"@peakfijn/config-commitlint": "^2.1.0",
+		"@peakfijn/config-release": "^2.1.0",
 		"@types/detect-indent": "^5.0.0",
 		"@types/fs-extra": "^8.0.0",
 		"@types/jest": "^24.0.11",
 		"@types/lodash": "^4.14.136",
-		"@types/node": "^12.6.2",
+		"@types/node": "^12.6.8",
 		"@types/semver": "^6.0.1",
-		"@typescript-eslint/eslint-plugin": "^1.12.0",
-		"@typescript-eslint/parser": "^1.12.0",
-		"codecov": "^3.3.0",
-		"eslint": "^6.0.1",
+		"@typescript-eslint/eslint-plugin": "^1.13.0",
+		"@typescript-eslint/parser": "^1.13.0",
+		"codecov": "^3.5.0",
+		"eslint": "^6.1.0",
 		"jest": "^24.8.0",
 		"ts-jest": "^24.0.2",
 		"typescript": "^3.5.3"
@@ -77,24 +76,6 @@
 	"config": {
 		"commitizen": {
 			"path": "@peakfijn/config-commitizen"
-		}
-	},
-	"commitlint": {
-		"extends": [
-			"@peakfijn/config-commitlint"
-		],
-		"rules": {
-			"scope-empty": [
-				0
-			],
-			"scope-enum": [
-				2,
-				"always",
-				[
-					"deps",
-					"deps-dev"
-				]
-			]
 		}
 	},
 	"release": {

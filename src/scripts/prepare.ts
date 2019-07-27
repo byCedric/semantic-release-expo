@@ -3,7 +3,6 @@ import { logManifestFromError, readManifests, writeManifest } from '../expo';
 import { SemanticMethod } from '../types';
 import bumpVersions from '../version-bumpers';
 
-// tslint:disable-next-line:no-var-requires
 const SemanticReleaseError = require('@semantic-release/error');
 
 /**
