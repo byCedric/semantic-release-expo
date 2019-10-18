@@ -1,3 +1,31 @@
+## [2.2.3](https://github.com/bycedric/semantic-release-expo/compare/2.2.2...2.2.3) (2019-10-18)
+
+
+### Other chores
+
+* **deps:** bump eslint-utils from 1.4.0 to 1.4.2 ([#144](https://github.com/bycedric/semantic-release-expo/issues/144)) ([ace8f9d](https://github.com/bycedric/semantic-release-expo/commit/ace8f9d))
+* **deps-dev:** bump [@commitlint](https://github.com/commitlint)/travis-cli from 8.1.0 to 8.2.0 ([#157](https://github.com/bycedric/semantic-release-expo/issues/157)) ([378a84c](https://github.com/bycedric/semantic-release-expo/commit/378a84c))
+* **deps-dev:** bump [@types](https://github.com/types)/detect-indent from 5.0.0 to 6.0.0 ([#141](https://github.com/bycedric/semantic-release-expo/issues/141)) ([822ad7e](https://github.com/bycedric/semantic-release-expo/commit/822ad7e))
+* **deps-dev:** bump [@types](https://github.com/types)/jest from 24.0.15 to 24.0.16 ([#142](https://github.com/bycedric/semantic-release-expo/issues/142)) ([662cc52](https://github.com/bycedric/semantic-release-expo/commit/662cc52))
+* **deps-dev:** bump [@types](https://github.com/types)/jest from 24.0.16 to 24.0.18 ([#146](https://github.com/bycedric/semantic-release-expo/issues/146)) ([5c3f573](https://github.com/bycedric/semantic-release-expo/commit/5c3f573))
+* **deps-dev:** bump [@types](https://github.com/types)/lodash from 4.14.136 to 4.14.138 ([#150](https://github.com/bycedric/semantic-release-expo/issues/150)) ([1a28183](https://github.com/bycedric/semantic-release-expo/commit/1a28183))
+* **deps-dev:** bump [@types](https://github.com/types)/lodash from 4.14.138 to 4.14.141 ([#151](https://github.com/bycedric/semantic-release-expo/issues/151)) ([3cc0a40](https://github.com/bycedric/semantic-release-expo/commit/3cc0a40))
+* **deps-dev:** bump [@types](https://github.com/types)/node from 12.6.8 to 12.7.3 ([#147](https://github.com/bycedric/semantic-release-expo/issues/147)) ([cb0fc4e](https://github.com/bycedric/semantic-release-expo/commit/cb0fc4e))
+* **deps-dev:** bump [@types](https://github.com/types)/node from 12.7.3 to 12.7.8 ([#156](https://github.com/bycedric/semantic-release-expo/issues/156)) ([db6157e](https://github.com/bycedric/semantic-release-expo/commit/db6157e))
+* **deps-dev:** bump [@types](https://github.com/types)/semver from 6.0.1 to 6.0.2 ([#153](https://github.com/bycedric/semantic-release-expo/issues/153)) ([f99ba39](https://github.com/bycedric/semantic-release-expo/commit/f99ba39))
+* **deps-dev:** bump codecov from 3.5.0 to 3.6.1 ([#152](https://github.com/bycedric/semantic-release-expo/issues/152)) ([eeb49f8](https://github.com/bycedric/semantic-release-expo/commit/eeb49f8))
+* **deps-dev:** bump eslint from 6.1.0 to 6.3.0 ([#145](https://github.com/bycedric/semantic-release-expo/issues/145)) ([24bb3bf](https://github.com/bycedric/semantic-release-expo/commit/24bb3bf))
+* **deps-dev:** bump eslint from 6.3.0 to 6.5.1 ([#154](https://github.com/bycedric/semantic-release-expo/issues/154)) ([19f3b64](https://github.com/bycedric/semantic-release-expo/commit/19f3b64))
+* **deps-dev:** bump jest from 24.8.0 to 24.9.0 ([#149](https://github.com/bycedric/semantic-release-expo/issues/149)) ([e44a74d](https://github.com/bycedric/semantic-release-expo/commit/e44a74d))
+* **deps-dev:** bump ts-jest from 24.0.2 to 24.1.0 ([#158](https://github.com/bycedric/semantic-release-expo/issues/158)) ([996ef24](https://github.com/bycedric/semantic-release-expo/commit/996ef24))
+* **deps-dev:** bump typescript from 3.5.3 to 3.6.2 ([#148](https://github.com/bycedric/semantic-release-expo/issues/148)) ([bdc13c7](https://github.com/bycedric/semantic-release-expo/commit/bdc13c7))
+* **deps-dev:** bump typescript from 3.6.2 to 3.6.3 ([#155](https://github.com/bycedric/semantic-release-expo/issues/155)) ([cf95220](https://github.com/bycedric/semantic-release-expo/commit/cf95220))
+
+
+### Pipeline changes
+
+* only audit production dependencies ([4f8ee8a](https://github.com/bycedric/semantic-release-expo/commit/4f8ee8a))
+
 ## [2.2.2](https://github.com/bycedric/semantic-release-expo/compare/2.2.1...2.2.2) (2019-07-27)
 
 
