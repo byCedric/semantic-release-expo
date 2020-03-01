@@ -21,7 +21,7 @@ export const getVersionCode = (next: SemVer, expo: SemVer) => (
 export const getDefaultVariables = (meta: ManifestMeta, context: Context) => {
 	const expo = coerce(meta.manifest.sdkVersion);
 	const last = coerce(context.lastRelease!.version);
-	const next = coerce(context.nextRelease!.version);
+	const next = new SemVer(context.nextRelease!.version, {includePrerelease: true}); // coerce truncates prerelease tags
 
 	return {
 		code: (next && expo) ? getVersionCode(next, expo) : '000000000',
