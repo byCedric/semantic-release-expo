@@ -49,7 +49,10 @@ describe('version', () => {
 				code: 290030000,
 				expo: coerce('29.0.1'),
 				last: coerce('2.5.12'),
-				next: coerce('3.0.0'),
+				next: {...coerce('3.0.0'),
+					includePrerelease: true,
+					options: {includePrerelease: true}
+				},
 				recommended: '3.0.0',
 			});
 		});
@@ -75,7 +78,10 @@ describe('version', () => {
 		code: 290040600,
 		expo: coerce('29.1.0'),
 		last: coerce('4.5.1'),
-		next: coerce('4.6.0'),
+		next: {...coerce('4.6.0'),
+			includePrerelease: true,
+			options: {includePrerelease: true}
+		},
 		recommended: '4.6.0',
 	};
 
