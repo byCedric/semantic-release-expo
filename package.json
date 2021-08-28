@@ -32,6 +32,7 @@
 		"commit": "git-cz"
 	},
 	"dependencies": {
+		"@semantic-release/error": "^2.2.0",
 		"detect-indent": "^6.0.0",
 		"detect-newline": "^3.0.0",
 		"fs-extra": "^8.1.0",
